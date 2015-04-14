@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		4AF2F85F2D61D791A5D8957B /* libPods-Test.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE9F3E750F8771459463B31E /* libPods-Test.a */; };
 		BA7F35C71ADD610200345316 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7F35C21ADD610200345316 /* AppDelegate.m */; };
-		BA7F35C81ADD610200345316 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7F35C51ADD610200345316 /* ViewController.m */; };
+		BA7F35C81ADD610200345316 /* FlightSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7F35C51ADD610200345316 /* FlightSearchController.m */; };
 		BA7F35CC1ADD62B200345316 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA7F35CA1ADD62B200345316 /* Info.plist */; };
 		BA7F35CD1ADD62B200345316 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7F35CB1ADD62B200345316 /* main.m */; };
 		BA7F35E11ADD653900345316 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7F35DE1ADD653900345316 /* Constants.m */; };
@@ -23,8 +23,8 @@
 		897940753F58AEC0B9432922 /* Pods-Test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Test.release.xcconfig"; path = "Pods/Target Support Files/Pods-Test/Pods-Test.release.xcconfig"; sourceTree = "<group>"; };
 		BA7F35C11ADD610200345316 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BA7F35C21ADD610200345316 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		BA7F35C41ADD610200345316 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		BA7F35C51ADD610200345316 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		BA7F35C41ADD610200345316 /* FlightSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightSearchController.h; sourceTree = "<group>"; };
+		BA7F35C51ADD610200345316 /* FlightSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightSearchController.m; sourceTree = "<group>"; };
 		BA7F35CA1ADD62B200345316 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA7F35CB1ADD62B200345316 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BA7F35DD1ADD653900345316 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
@@ -69,8 +69,8 @@
 		BA7F35C31ADD610200345316 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				BA7F35C41ADD610200345316 /* ViewController.h */,
-				BA7F35C51ADD610200345316 /* ViewController.m */,
+				BA7F35C41ADD610200345316 /* FlightSearchController.h */,
+				BA7F35C51ADD610200345316 /* FlightSearchController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -154,12 +154,12 @@
 		BAF1F27D1ADD4FD300670873 /* Test */ = {
 			isa = PBXGroup;
 			children = (
+				BA7F35C31ADD610200345316 /* Controllers */,
+				BA7F35C61ADD610200345316 /* Models */,
 				BA7F35EA1ADD660D00345316 /* InterfaceBuilder */,
 				BA7F35DB1ADD653900345316 /* Misc */,
 				BA7F35C91ADD62B200345316 /* SupportingFiles */,
 				BA7F35C01ADD610200345316 /* AppDelegate */,
-				BA7F35C31ADD610200345316 /* Controllers */,
-				BA7F35C61ADD610200345316 /* Models */,
 				BAF1F28B1ADD4FD300670873 /* Images.xcassets */,
 			);
 			path = Test;
@@ -279,7 +279,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA7F35C81ADD610200345316 /* ViewController.m in Sources */,
+				BA7F35C81ADD610200345316 /* FlightSearchController.m in Sources */,
 				BA7F35CD1ADD62B200345316 /* main.m in Sources */,
 				BA7F35C71ADD610200345316 /* AppDelegate.m in Sources */,
 				BA7F35E11ADD653900345316 /* Constants.m in Sources */,
