@@ -3,4 +3,6 @@
 
 target 'Test' do
 
+  pod 'RestKit', '~> 0.23.1'
+
 end
