@@ -19,6 +19,8 @@
 -(BOOL)isDateInPast:(NSDate*)date;
 -(BOOL)isDateInMoreThanYear:(NSDate*)date;
 
+-(void)showError:(NSError*)error;
+
 @end
 
 @interface FlightDateSelectionController ()
@@ -37,19 +39,20 @@
 
 #pragma mark - RDVCalendarViewDelegate implementation
 - (BOOL)calendarView:(RDVCalendarView *)calendarView shouldSelectCellAtIndex:(NSInteger)index {
-    
     NSDate* selectedDate = [self.calendarView dateForIndex:index];
-    
     if ([self isDateInPast:selectedDate]) {
-        NSLog(@"Date in past!");
+        [self showError:[NSError errorWithDomain:FlightDateSelectionErrorDomain
+                                            code:FlightDateSelectionPastErrorCode
+                                        userInfo:@{NSLocalizedDescriptionKey: NSLocalizedString(@"Selected date has passed. Please select later date", nil)}]];
         return NO;
     }
     
     if ([self isDateInMoreThanYear:selectedDate]) {
-        NSLog(@"Date in future!");
+        [self showError:[NSError errorWithDomain:FlightDateSelectionErrorDomain
+                                            code:FlightDateSelectionFutureErrorCode
+                                        userInfo:@{NSLocalizedDescriptionKey: NSLocalizedString(@"Unable to select date greater than 1 year from today. Please select earlier date", nil)}]];
         return NO;
     }
-    NSLog(@"Date in acceptable range!");
     return YES;
 }
 
@@ -86,18 +89,29 @@
 }
 
 -(BOOL)isDateInPast:(NSDate*)date {
-    return [date timeIntervalSinceNow] < 0.0f;
+    NSCalendar* calendar = [NSCalendar currentCalendar];
+    NSDateComponents* todayComponents = [calendar components:NSCalendarUnitTimeZone | NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay fromDate:[NSDate date]];
+    NSDate* today = [calendar dateFromComponents:todayComponents];
+    return [date compare:today] == NSOrderedAscending;
 }
 
 -(BOOL)isDateInMoreThanYear:(NSDate*)date {
     NSCalendar* calendar = [NSCalendar currentCalendar];
     
-    NSDateComponents* components = [calendar components:NSCalendarUnitMinute | NSCalendarUnitHour | NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear | NSCalendarUnitTimeZone fromDate:[NSDate date]];
+    NSDateComponents* components = [calendar components: NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear | NSCalendarUnitTimeZone fromDate:[NSDate date]];
     components.year++;
     components.day--;
     
     NSDate* nextYear = [calendar dateFromComponents:components];
     return [date compare:nextYear] == NSOrderedDescending;
+}
+
+-(void)showError:(NSError *)error {
+    [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil)
+                               message:[error localizedDescription]
+                              delegate:nil
+                     cancelButtonTitle:NSLocalizedString(@"OK", nil)
+                      otherButtonTitles:nil] show];
 }
 
 @end
