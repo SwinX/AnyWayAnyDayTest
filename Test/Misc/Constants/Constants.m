@@ -7,6 +7,7 @@
 //
 
 #import "Constants.h"
+NSString* const BaseURL = @"https://www.anywayanyday.com/";
 NSString* const kSearchData = @"kSearchData";
 NSString* const FlightDateSelectionErrorDomain = @"FlightDateSelectionErrorDomain";
 NSInteger const FlightDateSelectionPastErrorCode = 1;

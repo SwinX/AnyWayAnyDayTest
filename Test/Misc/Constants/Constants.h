@@ -11,6 +11,9 @@
 
 @import UIKit;
 
+#pragma mark - API
+extern NSString* const BaseURL;
+
 #pragma mark - Errors
 extern NSString* const FlightDateSelectionErrorDomain;
 extern NSInteger const FlightDateSelectionPastErrorCode;

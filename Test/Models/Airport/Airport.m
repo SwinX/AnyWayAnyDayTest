@@ -18,7 +18,7 @@
              @"airport": @"Airport",
              @"data": @"Data",
              @"cityCode": @"CityCode"
-             };
+            };
 }
 
 @end
