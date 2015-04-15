@@ -11,9 +11,6 @@
 
 @import UIKit;
 
-#pragma mark - Storyboard IDs
-extern NSString* const FlightDateSelectionControllerStoryboardId;
-
 #pragma mark - Errors
 extern NSString* const FlightDateSelectionErrorDomain;
 extern NSInteger const FlightDateSelectionPastErrorCode;

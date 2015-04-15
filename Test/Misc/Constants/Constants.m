@@ -8,7 +8,6 @@
 
 #import "Constants.h"
 
-NSString* const FlightDateSelectionControllerStoryboardId = @"FlightDateSelectionControllerStoryboardId";
 NSString* const FlightDateSelectionErrorDomain = @"FlightDateSelectionErrorDomain";
 NSInteger const FlightDateSelectionPastErrorCode = 1;
 NSInteger const FlightDateSelectionFutureErrorCode = 2;
