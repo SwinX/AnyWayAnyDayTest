@@ -8,6 +8,7 @@
 
 #import <RDVCalendarView/RDVCalendarView.h>
 #import "FlightDateSelectionController.h"
+#import "FlightDateSelectionControllerDelegate.h"
 
 #import "Constants.h"
 
@@ -30,6 +31,14 @@
 @end
 
 @implementation FlightDateSelectionController
+
+#pragma mark - Initialization
+-(instancetype)initWithDelegate:(id<FlightDateSelectionControllerDelegate>)delegate {
+    if (self = [super init]) {
+        self.delegate = delegate;
+    }
+    return self;
+}
 
 #pragma mark - UIViewController lifecycle
 -(void)viewDidLoad {
@@ -57,7 +66,9 @@
 }
 
 - (void)calendarView:(RDVCalendarView *)calendarView didSelectCellAtIndex:(NSInteger)index {
-    NSLog(@"%@", [self.calendarView dateForIndex:index]);
+    if ([self.delegate respondsToSelector:@selector(flightDateSelectionController:didSelectDate:)]) {
+        [self.delegate flightDateSelectionController:self didSelectDate:[self.calendarView dateForIndex:index]];
+    }
 }
 
 @end

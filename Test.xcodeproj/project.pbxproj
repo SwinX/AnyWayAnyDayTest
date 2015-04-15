@@ -34,6 +34,7 @@
 		BA7F35F61ADD900F00345316 /* FlightSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightSearchController.m; sourceTree = "<group>"; };
 		BA7F35F81ADD902200345316 /* FlightDateSelectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightDateSelectionController.h; sourceTree = "<group>"; };
 		BA7F35F91ADD902200345316 /* FlightDateSelectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightDateSelectionController.m; sourceTree = "<group>"; };
+		BA7F35FB1ADEAA5600345316 /* FlightDateSelectionControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlightDateSelectionControllerDelegate.h; sourceTree = "<group>"; };
 		BAF1F27B1ADD4FD300670873 /* Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAF1F28B1ADD4FD300670873 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		EE9F3E750F8771459463B31E /* libPods-Test.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Test.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,6 +142,7 @@
 			children = (
 				BA7F35F81ADD902200345316 /* FlightDateSelectionController.h */,
 				BA7F35F91ADD902200345316 /* FlightDateSelectionController.m */,
+				BA7F35FB1ADEAA5600345316 /* FlightDateSelectionControllerDelegate.h */,
 			);
 			path = FlightDateSelectionController;
 			sourceTree = "<group>";

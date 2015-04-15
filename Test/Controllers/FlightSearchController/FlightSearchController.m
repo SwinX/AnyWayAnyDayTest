@@ -8,10 +8,11 @@
 
 #import "FlightSearchController.h"
 #import "FlightDateSelectionController.h"
+#import "FlightDateSelectionControllerDelegate.h"
 
 #import "Constants.h"
 
-@interface FlightSearchController ()
+@interface FlightSearchController ()<FlightDateSelectionControllerDelegate>
 
 @property (nonatomic, weak) IBOutlet UITableViewCell* departurePlace;
 @property (nonatomic, weak) IBOutlet UITableViewCell* arrivalPlace;
@@ -31,10 +32,15 @@
 #pragma mark - UITableViewControllerDelegate implementation
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    if ([tableView cellForRowAtIndexPath:indexPath] == self.flightDate) {;
-        [self.navigationController pushViewController:[[FlightDateSelectionController alloc] init] animated:YES];
+    if ([tableView cellForRowAtIndexPath:indexPath] == self.flightDate) {
+        [self.navigationController pushViewController:[[FlightDateSelectionController alloc] initWithDelegate:self] animated:YES];
     }
+}
+
+#pragma mark - FlightDateSelectionControllerDelegate implementation
+-(void)flightDateSelectionController:(FlightDateSelectionController *)controller didSelectDate:(NSDate *)date {
+    [self.navigationController popViewControllerAnimated:YES];
+    NSLog(@"%@", date);
 }
 
 @end

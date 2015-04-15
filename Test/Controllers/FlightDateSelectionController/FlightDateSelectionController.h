@@ -9,6 +9,12 @@
 #import <Foundation/Foundation.h>
 #import <RDVCalendarView/RDVCalendarView.h>
 
+@protocol FlightDateSelectionControllerDelegate;
+
 @interface FlightDateSelectionController : UIViewController<RDVCalendarViewDelegate>
+
+@property (nonatomic, weak) id<FlightDateSelectionControllerDelegate> delegate;
+
+-(instancetype)initWithDelegate:(id<FlightDateSelectionControllerDelegate>)delegate;
 
 @end
