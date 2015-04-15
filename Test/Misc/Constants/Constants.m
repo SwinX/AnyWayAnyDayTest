@@ -7,7 +7,7 @@
 //
 
 #import "Constants.h"
-
+NSString* const kSearchData = @"kSearchData";
 NSString* const FlightDateSelectionErrorDomain = @"FlightDateSelectionErrorDomain";
 NSInteger const FlightDateSelectionPastErrorCode = 1;
 NSInteger const FlightDateSelectionFutureErrorCode = 2;

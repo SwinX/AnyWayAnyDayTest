@@ -2,6 +2,7 @@
 # platform :ios, '6.0'
 
 target 'Test' do
-  pod 'RestKit', '~> 0.23.1'
+  pod 'AFNetworking', '~> 2.5.2'
+  pod 'Mantle', '~> 2.0'
   pod 'RDVCalendarView', '~> 1.0.7'
 end

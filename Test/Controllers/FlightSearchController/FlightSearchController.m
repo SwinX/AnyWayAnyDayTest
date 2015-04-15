@@ -10,7 +10,13 @@
 #import "FlightDateSelectionController.h"
 #import "FlightDateSelectionControllerDelegate.h"
 
+#import "FlightSearchData.h"
+
 #import "Constants.h"
+
+@interface FlightSearchController (Private)
+
+@end
 
 @interface FlightSearchController ()<FlightDateSelectionControllerDelegate>
 
@@ -20,10 +26,21 @@
 @property (nonatomic, weak) IBOutlet UITableViewCell* passengerAmount;
 @property (nonatomic, weak) IBOutlet UITableViewCell* flightClass;
 
+@property (nonatomic, strong) FlightSearchData* searchData;
+
 @end
 
 @implementation FlightSearchController
 
+#pragma mark - Initialization and deallocation
+-(instancetype)initWithCoder:(NSCoder *)aDecoder {
+    if (self = [super initWithCoder:aDecoder]) {
+        self.searchData = [[FlightSearchData alloc] init];
+    }
+    return self;
+}
+
+#pragma mark - UIViewController lifecycle
 -(void)viewDidLoad {
     [super viewDidLoad];
 }
