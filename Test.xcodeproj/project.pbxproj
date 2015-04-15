@@ -9,12 +9,13 @@
 /* Begin PBXBuildFile section */
 		4AF2F85F2D61D791A5D8957B /* libPods-Test.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE9F3E750F8771459463B31E /* libPods-Test.a */; };
 		BA7F35C71ADD610200345316 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7F35C21ADD610200345316 /* AppDelegate.m */; };
-		BA7F35C81ADD610200345316 /* FlightSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7F35C51ADD610200345316 /* FlightSearchController.m */; };
 		BA7F35CC1ADD62B200345316 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA7F35CA1ADD62B200345316 /* Info.plist */; };
 		BA7F35CD1ADD62B200345316 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7F35CB1ADD62B200345316 /* main.m */; };
 		BA7F35E11ADD653900345316 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7F35DE1ADD653900345316 /* Constants.m */; };
 		BA7F35EF1ADD660D00345316 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA7F35EB1ADD660D00345316 /* LaunchScreen.xib */; };
 		BA7F35F01ADD660D00345316 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA7F35ED1ADD660D00345316 /* Main.storyboard */; };
+		BA7F35F71ADD900F00345316 /* FlightSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7F35F61ADD900F00345316 /* FlightSearchController.m */; };
+		BA7F35FA1ADD902200345316 /* FlightDateSelectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7F35F91ADD902200345316 /* FlightDateSelectionController.m */; };
 		BAF1F28C1ADD4FD300670873 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAF1F28B1ADD4FD300670873 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -23,14 +24,16 @@
 		897940753F58AEC0B9432922 /* Pods-Test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Test.release.xcconfig"; path = "Pods/Target Support Files/Pods-Test/Pods-Test.release.xcconfig"; sourceTree = "<group>"; };
 		BA7F35C11ADD610200345316 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BA7F35C21ADD610200345316 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		BA7F35C41ADD610200345316 /* FlightSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightSearchController.h; sourceTree = "<group>"; };
-		BA7F35C51ADD610200345316 /* FlightSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightSearchController.m; sourceTree = "<group>"; };
 		BA7F35CA1ADD62B200345316 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA7F35CB1ADD62B200345316 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BA7F35DD1ADD653900345316 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		BA7F35DE1ADD653900345316 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		BA7F35EC1ADD660D00345316 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		BA7F35EE1ADD660D00345316 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BA7F35F51ADD900F00345316 /* FlightSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightSearchController.h; sourceTree = "<group>"; };
+		BA7F35F61ADD900F00345316 /* FlightSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightSearchController.m; sourceTree = "<group>"; };
+		BA7F35F81ADD902200345316 /* FlightDateSelectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightDateSelectionController.h; sourceTree = "<group>"; };
+		BA7F35F91ADD902200345316 /* FlightDateSelectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightDateSelectionController.m; sourceTree = "<group>"; };
 		BAF1F27B1ADD4FD300670873 /* Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAF1F28B1ADD4FD300670873 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		EE9F3E750F8771459463B31E /* libPods-Test.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Test.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,8 +72,8 @@
 		BA7F35C31ADD610200345316 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				BA7F35C41ADD610200345316 /* FlightSearchController.h */,
-				BA7F35C51ADD610200345316 /* FlightSearchController.m */,
+				BA7F35F31ADD900F00345316 /* FlightDateSelectionController */,
+				BA7F35F41ADD900F00345316 /* FlightSearchController */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -131,6 +134,24 @@
 				BA7F35EB1ADD660D00345316 /* LaunchScreen.xib */,
 			);
 			name = Xibs;
+			sourceTree = "<group>";
+		};
+		BA7F35F31ADD900F00345316 /* FlightDateSelectionController */ = {
+			isa = PBXGroup;
+			children = (
+				BA7F35F81ADD902200345316 /* FlightDateSelectionController.h */,
+				BA7F35F91ADD902200345316 /* FlightDateSelectionController.m */,
+			);
+			path = FlightDateSelectionController;
+			sourceTree = "<group>";
+		};
+		BA7F35F41ADD900F00345316 /* FlightSearchController */ = {
+			isa = PBXGroup;
+			children = (
+				BA7F35F51ADD900F00345316 /* FlightSearchController.h */,
+				BA7F35F61ADD900F00345316 /* FlightSearchController.m */,
+			);
+			path = FlightSearchController;
 			sourceTree = "<group>";
 		};
 		BAF1F2721ADD4FD300670873 = {
@@ -279,9 +300,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA7F35C81ADD610200345316 /* FlightSearchController.m in Sources */,
 				BA7F35CD1ADD62B200345316 /* main.m in Sources */,
+				BA7F35FA1ADD902200345316 /* FlightDateSelectionController.m in Sources */,
 				BA7F35C71ADD610200345316 /* AppDelegate.m in Sources */,
+				BA7F35F71ADD900F00345316 /* FlightSearchController.m in Sources */,
 				BA7F35E11ADD653900345316 /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,4 +9,9 @@
 #ifndef CONSTANTS_H
 #define CONSTANTS_H
 
+@import UIKit;
+
+#pragma mark - Storyboard IDs
+extern NSString* const FlightDateSelectionControllerStoryboardId;
+
 #endif

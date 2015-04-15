@@ -7,6 +7,9 @@
 //
 
 #import "FlightSearchController.h"
+#import "FlightDateSelectionController.h"
+
+#import "Constants.h"
 
 @interface FlightSearchController ()
 
@@ -20,7 +23,7 @@
 
 @implementation FlightSearchController
 
-- (void)viewDidLoad {
+-(void)viewDidLoad {
     [super viewDidLoad];
 }
 
@@ -28,6 +31,10 @@
 #pragma mark - UITableViewControllerDelegate implementation
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if ([tableView cellForRowAtIndexPath:indexPath] == self.flightDate) {;
+        [self.navigationController pushViewController:[[FlightDateSelectionController alloc] init] animated:YES];
+    }
 }
 
 @end
