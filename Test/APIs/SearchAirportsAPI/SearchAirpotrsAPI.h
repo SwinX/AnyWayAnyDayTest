@@ -15,7 +15,7 @@
 
 @property (nonatomic, readonly) BOOL isLoading;
 
--(void)searchAirports:(NSString*)query
+-(void)searchAirports:(NSString*)query;
 -(void)cancel;
 
 @end

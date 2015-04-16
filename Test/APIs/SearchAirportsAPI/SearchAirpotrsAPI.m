@@ -42,6 +42,9 @@
                                                    }
                                                }
                                                failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                                   if (error.code == -999) {
+                                                       return;
+                                                   }
                                                    __strong SearchAirpotrsAPI* strongSelf = weakSelf;
                                                    if (strongSelf) {
                                                        strongSelf -> _currentOperation = nil;

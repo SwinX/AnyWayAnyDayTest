@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		4AF2F85F2D61D791A5D8957B /* libPods-Test.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE9F3E750F8771459463B31E /* libPods-Test.a */; };
 		BA7F35C71ADD610200345316 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7F35C21ADD610200345316 /* AppDelegate.m */; };
-		BA7F35CC1ADD62B200345316 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA7F35CA1ADD62B200345316 /* Info.plist */; };
 		BA7F35CD1ADD62B200345316 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7F35CB1ADD62B200345316 /* main.m */; };
 		BA7F35E11ADD653900345316 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7F35DE1ADD653900345316 /* Constants.m */; };
 		BA7F35EF1ADD660D00345316 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA7F35EB1ADD660D00345316 /* LaunchScreen.xib */; };
@@ -330,7 +329,6 @@
 			files = (
 				BA7F35EF1ADD660D00345316 /* LaunchScreen.xib in Resources */,
 				BA7F35F01ADD660D00345316 /* Main.storyboard in Resources */,
-				BA7F35CC1ADD62B200345316 /* Info.plist in Resources */,
 				BAF1F28C1ADD4FD300670873 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

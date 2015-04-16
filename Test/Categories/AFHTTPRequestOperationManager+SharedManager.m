@@ -14,6 +14,7 @@ static AFHTTPRequestOperationManager* instance = nil;
 
 +(void)setupSharedManagerWithURL:(NSURL *)url {
     instance = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:url]; //may be restricted for single setup only
+    instance.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/plain"];
 }
 
 +(instancetype)sharedManager {

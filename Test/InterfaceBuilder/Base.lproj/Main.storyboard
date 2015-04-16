@@ -214,7 +214,7 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="2Uc-DM-h5v">
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="2Uc-DM-h5v">
                                                     <rect key="frame" x="158" y="12" width="20" height="20"/>
                                                 </activityIndicatorView>
                                             </subviews>
@@ -260,6 +260,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="jZL-YV-Vx5" id="Hqc-6b-dKk"/>
+                                    <outlet property="delegate" destination="jZL-YV-Vx5" id="NcE-AP-kwo"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -276,6 +280,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="searchBar" destination="S1h-5R-AAD" id="fFW-Kx-w0n"/>
+                        <outlet property="table" destination="vv6-wi-FD7" id="Ges-V4-qwK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n86-gW-BUr" userLabel="First Responder" sceneMemberID="firstResponder"/>
