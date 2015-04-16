@@ -21,6 +21,8 @@ NSInteger const MinQueryLength = 2;
 -(void)airportsFound:(NSArray*)airports;
 -(void)failedToLoadAirportsWithError:(NSError*)error;
 
+-(NSArray*)filterAirports:(NSArray*)airports;
+
 -(UITableViewCell*)tableView:(UITableView*)tableView airportCellForIndexPath:(NSIndexPath*)indexPath;
 -(UITableViewCell*)nothingFoundCellForTableView:(UITableView*)tableView;
 -(UITableViewCell*)loadingCellForTableView:(UITableView*)tableView;
@@ -119,6 +121,9 @@ NSInteger const MinQueryLength = 2;
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     if (searchText.length >= MinQueryLength) {
         [self loadAirports:searchText];
+    } else {
+        _airports = nil;
+        [_table reloadData];
     }
 }
 
@@ -137,7 +142,7 @@ NSInteger const MinQueryLength = 2;
 }
 
 -(void)airportsFound:(NSArray*)airports {
-    _airports = airports;
+    _airports = [self filterAirports:airports];
     [_table reloadData];
 }
 
@@ -148,6 +153,11 @@ NSInteger const MinQueryLength = 2;
                      cancelButtonTitle:NSLocalizedString(@"OK", nil)
                      otherButtonTitles:nil] show];
     [_table reloadData];
+}
+
+-(NSArray*)filterAirports:(NSArray*)airports {
+    NSArray* filtered = [airports filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF.airport = nil"]];
+    return filtered;
 }
 
 -(UITableViewCell*)tableView:(UITableView*)tableView airportCellForIndexPath:(NSIndexPath*)indexPath {
