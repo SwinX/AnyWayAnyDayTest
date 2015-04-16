@@ -11,16 +11,26 @@
 #import "FlightDateSelectionController.h"
 #import "FlightDateSelectionControllerDelegate.h"
 #import "SearchAirportController.h"
+#import "SearchAirportControllerDelegate.h"
 
 #import "FlightSearchData.h"
+#import "Airport.h"
 
 #import "Constants.h"
 
+typedef enum _FlightPlaceSelection {
+    FPSDeparture = 0,
+    FPSArrival
+}FlightPlaceSelection;
+
 @interface FlightSearchController (Private)
+
+-(void)startFlightPlaceSelection:(FlightPlaceSelection)selection;
+-(void)displayAirport:(Airport*)airport inFlightPlaceCell:(UITableViewCell*)cell;
 
 @end
 
-@interface FlightSearchController ()<FlightDateSelectionControllerDelegate>
+@interface FlightSearchController ()<FlightDateSelectionControllerDelegate, SearchAirportControllerDelegate>
 
 @property (nonatomic, weak) IBOutlet UITableViewCell* departurePlace;
 @property (nonatomic, weak) IBOutlet UITableViewCell* arrivalPlace;
@@ -32,7 +42,9 @@
 
 @end
 
-@implementation FlightSearchController
+@implementation FlightSearchController {
+    FlightPlaceSelection _flightPlaceSelection;
+}
 
 #pragma mark - Initialization and deallocation
 -(instancetype)initWithCoder:(NSCoder *)aDecoder {
@@ -54,14 +66,16 @@
     
     UITableViewCell* cell = [tableView cellForRowAtIndexPath:indexPath];
     
-    if (cell == self.flightDate) {
+    if (cell == _flightDate) {
         return [self.navigationController pushViewController:[[FlightDateSelectionController alloc] initWithDelegate:self] animated:YES];
     }
     
-    if (cell == self.departurePlace || cell == self.arrivalPlace) {
-        UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        SearchAirportController* controller = [storyboard instantiateViewControllerWithIdentifier:SearchAirportControllerStoryboardId];
-        return [self.navigationController pushViewController:controller animated:YES];
+    if (cell == _departurePlace) {
+        [self startFlightPlaceSelection:FPSDeparture];
+    }
+    
+    if (cell == _arrivalPlace) {
+        [self startFlightPlaceSelection:FPSArrival];
     }
 }
 
@@ -69,6 +83,39 @@
 -(void)flightDateSelectionController:(FlightDateSelectionController *)controller didSelectDate:(NSDate *)date {
     [self.navigationController popViewControllerAnimated:YES];
     NSLog(@"%@", date);
+}
+
+#pragma mark - SearchAirportControllerDelegate implementation
+-(void)searchAirportController:(SearchAirportController*)controller didSelectAirport:(Airport*)airport {
+    switch (_flightPlaceSelection) {
+        case FPSDeparture:
+            _searchData.departure = airport;
+            [self displayAirport:airport inFlightPlaceCell:_departurePlace];
+            break;
+        case FPSArrival:
+            _searchData.arrival = airport;
+            [self displayAirport:airport inFlightPlaceCell:_arrivalPlace];
+            break;
+    }
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+@end
+
+@implementation FlightSearchController (Private)
+
+-(void)startFlightPlaceSelection:(FlightPlaceSelection)selection {
+    _flightPlaceSelection = selection;
+    UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    SearchAirportController* controller = [storyboard instantiateViewControllerWithIdentifier:SearchAirportControllerStoryboardId];
+    controller.delegate = self;
+    [self.navigationController pushViewController:controller animated:YES];
+}
+
+-(void)displayAirport:(Airport*)airport inFlightPlaceCell:(UITableViewCell*)cell {
+    cell.textLabel.text = airport.city;
+    cell.detailTextLabel.text = airport.country;
+    [cell setNeedsUpdateConstraints];
 }
 
 @end
