@@ -24,4 +24,6 @@ typedef enum _FlightClass {
 @property (nonatomic) NSUInteger passengerAmount;
 @property (nonatomic) FlightClass flightClass;
 
+@property (nonatomic, readonly) NSString* flightClassDescription;
+
 @end

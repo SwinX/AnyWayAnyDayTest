@@ -19,4 +19,13 @@
     return self;
 }
 
+-(NSString*)flightClassDescription {
+    switch (_flightClass) {
+        case FCEconomy:
+            return NSLocalizedString(@"Economy", nil);
+        case FCBusiness:
+            return NSLocalizedString(@"Business", nil);
+    }
+}
+
 @end

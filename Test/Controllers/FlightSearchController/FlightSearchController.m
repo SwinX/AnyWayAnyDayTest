@@ -26,7 +26,10 @@ typedef enum _FlightPlaceSelection {
 @interface FlightSearchController (Private)
 
 -(void)startFlightPlaceSelection:(FlightPlaceSelection)selection;
--(void)displayAirport:(Airport*)airport inFlightPlaceCell:(UITableViewCell*)cell;
+
+-(void)displayFlightSearchData:(FlightSearchData*)data;
+-(void)displayTitleText:(NSString*)titleText detailText:(NSString*)detailText inCell:(UITableViewCell*)cell;
+-(NSString*)formattedFlightDate:(NSDate*)date;
 
 @end
 
@@ -57,6 +60,7 @@ typedef enum _FlightPlaceSelection {
 #pragma mark - UIViewController lifecycle
 -(void)viewDidLoad {
     [super viewDidLoad];
+    [self displayFlightSearchData:_searchData];
 }
 
 
@@ -81,8 +85,9 @@ typedef enum _FlightPlaceSelection {
 
 #pragma mark - FlightDateSelectionControllerDelegate implementation
 -(void)flightDateSelectionController:(FlightDateSelectionController *)controller didSelectDate:(NSDate *)date {
+    _searchData.flightDate = date;
+    [self displayFlightSearchData:_searchData];
     [self.navigationController popViewControllerAnimated:YES];
-    NSLog(@"%@", date);
 }
 
 #pragma mark - SearchAirportControllerDelegate implementation
@@ -90,13 +95,12 @@ typedef enum _FlightPlaceSelection {
     switch (_flightPlaceSelection) {
         case FPSDeparture:
             _searchData.departure = airport;
-            [self displayAirport:airport inFlightPlaceCell:_departurePlace];
             break;
         case FPSArrival:
             _searchData.arrival = airport;
-            [self displayAirport:airport inFlightPlaceCell:_arrivalPlace];
             break;
     }
+    [self displayFlightSearchData:_searchData];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -112,10 +116,42 @@ typedef enum _FlightPlaceSelection {
     [self.navigationController pushViewController:controller animated:YES];
 }
 
--(void)displayAirport:(Airport*)airport inFlightPlaceCell:(UITableViewCell*)cell {
-    cell.textLabel.text = airport.city;
-    cell.detailTextLabel.text = airport.country;
-    [cell setNeedsUpdateConstraints];
+-(void)displayFlightSearchData:(FlightSearchData*)data {
+    [self displayTitleText:_searchData.departure.city
+                detailText:_searchData.departure.country
+                    inCell:_departurePlace];
+    [self displayTitleText:_searchData.arrival.city
+                detailText:_searchData.arrival.country
+                    inCell:_arrivalPlace];
+    [self displayTitleText:nil
+                detailText:[self formattedFlightDate:_searchData.flightDate]
+                    inCell:_flightDate];
+    [self displayTitleText:nil
+                detailText:[NSString stringWithFormat:@"%lu", (unsigned long)_searchData.passengerAmount]
+                    inCell:_passengerAmount];
+    [self displayTitleText:nil
+                detailText:_searchData.flightClassDescription
+                    inCell:_flightClass];
 }
+
+-(void)displayTitleText:(NSString*)titleText detailText:(NSString*)detailText inCell:(UITableViewCell*)cell {
+    if (titleText.length) {
+        cell.textLabel.text = titleText;
+    }
+    if (detailText.length) {
+        cell.detailTextLabel.text = detailText;
+    }
+    [cell setNeedsLayout];
+    [cell setNeedsUpdateConstraints];
+    [cell setNeedsDisplay];
+}
+
+-(NSString*)formattedFlightDate:(NSDate*)date {
+    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    formatter.dateStyle = NSDateFormatterShortStyle;
+    formatter.timeStyle = NSDateFormatterNoStyle;
+    return [formatter stringFromDate:date];
+}
+
 
 @end
