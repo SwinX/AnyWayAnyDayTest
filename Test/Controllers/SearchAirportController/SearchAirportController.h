@@ -8,6 +8,10 @@
 
 @import UIKit;
 
+@protocol SearchAirportControllerDelegate;
+
 @interface SearchAirportController : UIViewController
+
+@property (nonatomic, weak) id<SearchAirportControllerDelegate> delegate;
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "SearchAirportController.h"
+#import "SearchAirportControllerDelegate.h"
 #import "SearchAirpotrsAPI.h"
 
 #import "Airport.h"
@@ -14,6 +15,7 @@
 #import "Constants.h"
 
 NSInteger const MinQueryLength = 2;
+CGFloat const DefaultTableRowHeight = 44.0f;
 
 @interface SearchAirportController (Private)
 
@@ -67,6 +69,7 @@ NSInteger const MinQueryLength = 2;
 #pragma mark - UIViewContoller lifecycle
 -(void)viewDidLoad {
     [super viewDidLoad];
+    _table.rowHeight = DefaultTableRowHeight;
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShow:)
                                                  name:UIKeyboardWillShowNotification
@@ -116,6 +119,14 @@ NSInteger const MinQueryLength = 2;
 }
 
 #pragma mark - UITableViewDelegate implementation
+-(void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell* cell = [tableView cellForRowAtIndexPath:indexPath];
+    if ([cell.reuseIdentifier isEqualToString:AirportCell]) {
+        if ([self.delegate respondsToSelector:@selector(searchAirportController:didSelectAirport:)]) {
+            [self.delegate searchAirportController:self didSelectAirport:[_airports objectAtIndex:indexPath.row]];
+        }
+    }
+}
 
 #pragma mark - UISearchBarDelegate implementation
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
@@ -174,11 +185,6 @@ NSInteger const MinQueryLength = 2;
 
 -(UITableViewCell*)loadingCellForTableView:(UITableView*)tableView {
     return [tableView dequeueReusableCellWithIdentifier:LoadingAirportsCell];
-}
-
--(UITableViewCell*)lastTableCell {
-    NSIndexPath* indexPath = [NSIndexPath indexPathForItem:[self tableView:_table numberOfRowsInSection:0] - 1 inSection:0];
-    return [_table cellForRowAtIndexPath:indexPath];
 }
 
 -(void)keyboardWillShow:(NSNotification*)notification {
