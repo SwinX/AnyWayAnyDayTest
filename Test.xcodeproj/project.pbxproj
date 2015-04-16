@@ -20,6 +20,7 @@
 		BA7F36041ADED15500345316 /* Airport.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7F36031ADED15500345316 /* Airport.m */; };
 		BA7F360D1ADEE4E800345316 /* SearchAirpotrsAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7F360C1ADEE4E800345316 /* SearchAirpotrsAPI.m */; };
 		BA7F36111ADEE84F00345316 /* AFHTTPRequestOperationManager+SharedManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7F36101ADEE84F00345316 /* AFHTTPRequestOperationManager+SharedManager.m */; };
+		BA7F36151ADEF3AB00345316 /* SearchAirportController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7F36141ADEF3AB00345316 /* SearchAirportController.m */; };
 		BAF1F28C1ADD4FD300670873 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAF1F28B1ADD4FD300670873 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,8 @@
 		BA7F360C1ADEE4E800345316 /* SearchAirpotrsAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchAirpotrsAPI.m; sourceTree = "<group>"; };
 		BA7F360F1ADEE84F00345316 /* AFHTTPRequestOperationManager+SharedManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AFHTTPRequestOperationManager+SharedManager.h"; sourceTree = "<group>"; };
 		BA7F36101ADEE84F00345316 /* AFHTTPRequestOperationManager+SharedManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AFHTTPRequestOperationManager+SharedManager.m"; sourceTree = "<group>"; };
+		BA7F36131ADEF3AB00345316 /* SearchAirportController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchAirportController.h; sourceTree = "<group>"; };
+		BA7F36141ADEF3AB00345316 /* SearchAirportController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchAirportController.m; sourceTree = "<group>"; };
 		BAF1F27B1ADD4FD300670873 /* Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAF1F28B1ADD4FD300670873 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		EE9F3E750F8771459463B31E /* libPods-Test.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Test.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,6 +88,7 @@
 		BA7F35C31ADD610200345316 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				BA7F36121ADEF39900345316 /* SearchAirportController */,
 				BA7F35F31ADD900F00345316 /* FlightDateSelectionController */,
 				BA7F35F41ADD900F00345316 /* FlightSearchController */,
 			);
@@ -212,6 +216,15 @@
 				BA7F36101ADEE84F00345316 /* AFHTTPRequestOperationManager+SharedManager.m */,
 			);
 			path = Categories;
+			sourceTree = "<group>";
+		};
+		BA7F36121ADEF39900345316 /* SearchAirportController */ = {
+			isa = PBXGroup;
+			children = (
+				BA7F36131ADEF3AB00345316 /* SearchAirportController.h */,
+				BA7F36141ADEF3AB00345316 /* SearchAirportController.m */,
+			);
+			path = SearchAirportController;
 			sourceTree = "<group>";
 		};
 		BAF1F2721ADD4FD300670873 = {
@@ -363,6 +376,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA7F35CD1ADD62B200345316 /* main.m in Sources */,
+				BA7F36151ADEF3AB00345316 /* SearchAirportController.m in Sources */,
 				BA7F35FA1ADD902200345316 /* FlightDateSelectionController.m in Sources */,
 				BA7F360D1ADEE4E800345316 /* SearchAirpotrsAPI.m in Sources */,
 				BA7F36041ADED15500345316 /* Airport.m in Sources */,

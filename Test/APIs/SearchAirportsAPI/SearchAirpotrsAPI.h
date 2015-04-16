@@ -13,6 +13,9 @@
 @property(nonatomic, copy) void(^onAirportsFound)(NSArray* airports);
 @property(nonatomic, copy) void(^onError)(NSError* error);
 
--(void)searchAirports:(NSString*)query;
+@property (nonatomic, readonly) BOOL isLoading;
+
+-(void)searchAirports:(NSString*)query
+-(void)cancel;
 
 @end

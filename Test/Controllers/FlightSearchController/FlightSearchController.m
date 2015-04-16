@@ -7,8 +7,10 @@
 //
 
 #import "FlightSearchController.h"
+
 #import "FlightDateSelectionController.h"
 #import "FlightDateSelectionControllerDelegate.h"
+#import "SearchAirportController.h"
 
 #import "FlightSearchData.h"
 
@@ -49,8 +51,17 @@
 #pragma mark - UITableViewControllerDelegate implementation
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if ([tableView cellForRowAtIndexPath:indexPath] == self.flightDate) {
-        [self.navigationController pushViewController:[[FlightDateSelectionController alloc] initWithDelegate:self] animated:YES];
+    
+    UITableViewCell* cell = [tableView cellForRowAtIndexPath:indexPath];
+    
+    if (cell == self.flightDate) {
+        return [self.navigationController pushViewController:[[FlightDateSelectionController alloc] initWithDelegate:self] animated:YES];
+    }
+    
+    if (cell == self.departurePlace || cell == self.arrivalPlace) {
+        UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        SearchAirportController* controller = [storyboard instantiateViewControllerWithIdentifier:SearchAirportControllerStoryboardId];
+        return [self.navigationController pushViewController:controller animated:YES];
     }
 }
 

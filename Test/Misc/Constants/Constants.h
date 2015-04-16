@@ -14,6 +14,14 @@
 #pragma mark - API
 extern NSString* const BaseURL;
 
+#pragma mark - Storyboard IDs
+extern NSString* const SearchAirportControllerStoryboardId;
+
+#pragma mark - UITableViewCell IDs
+extern NSString* const AirportCell;
+extern NSString* const LoadingAirportsCell;
+extern NSString* const NoAirportsFoundCell;
+
 #pragma mark - Errors
 extern NSString* const FlightDateSelectionErrorDomain;
 extern NSInteger const FlightDateSelectionPastErrorCode;
