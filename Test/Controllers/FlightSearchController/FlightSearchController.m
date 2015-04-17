@@ -132,6 +132,7 @@ typedef enum _FlightPlaceSelection {
     [self displayTitleText:nil
                 detailText:_searchData.flightClassDescription
                     inCell:_flightClass];
+    self.navigationItem.rightBarButtonItem.enabled = _searchData.isNesessaryDataFilled;
 }
 
 -(void)displayTitleText:(NSString*)titleText detailText:(NSString*)detailText inCell:(UITableViewCell*)cell {

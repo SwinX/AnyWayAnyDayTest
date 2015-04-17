@@ -28,4 +28,8 @@
     }
 }
 
+-(BOOL)isNesessaryDataFilled {
+    return _departure && _arrival; //Not checking any other params because they have default values
+}
+
 @end

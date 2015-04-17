@@ -26,4 +26,6 @@ typedef enum _FlightClass {
 
 @property (nonatomic, readonly) NSString* flightClassDescription;
 
+@property (nonatomic, readonly) BOOL isNesessaryDataFilled;
+
 @end
