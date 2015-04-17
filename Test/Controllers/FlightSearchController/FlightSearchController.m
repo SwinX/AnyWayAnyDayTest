@@ -17,6 +17,9 @@
 #import "FlightSearchData.h"
 #import "Airport.h"
 #import "FlightClass.h"
+#import "FlightsRequestResult.h"
+
+#import "FlightsSearchAPI.h"
 
 #import "Constants.h"
 
@@ -43,6 +46,7 @@ typedef enum _CurrentSelection {
 -(void)displayTitleText:(NSString*)titleText detailText:(NSString*)detailText inCell:(UITableViewCell*)cell;
 -(NSString*)formattedFlightDate:(NSDate*)date;
 
+-(void)flightsSearchFinishedWithResult:(FlightsRequestResult*)result;
 
 @end
 
@@ -54,19 +58,25 @@ typedef enum _CurrentSelection {
 @property (nonatomic, weak) IBOutlet UITableViewCell* passengerAmount;
 @property (nonatomic, weak) IBOutlet UITableViewCell* flightClass;
 
-
-
 @end
 
 @implementation FlightSearchController {
+    FlightsSearchAPI* _flightsSearchAPI;
+    
     FlightSearchData* _searchData;
     CurrentSelection _currentSelection;
+    
     NSArray* _flightClasses;
 }
 
 #pragma mark - Initialization and deallocation
 -(instancetype)initWithCoder:(NSCoder *)aDecoder {
     if (self = [super initWithCoder:aDecoder]) {
+        __weak FlightSearchController* weakSelf = self;
+        _flightsSearchAPI = [[FlightsSearchAPI alloc] init];
+        _flightsSearchAPI.onFlighsSearchRequestSent = ^(FlightsRequestResult* result) {
+            [weakSelf flightsSearchFinishedWithResult:result];
+        };
         _searchData = [[FlightSearchData alloc] init];
         _flightClasses = [FlightClass allFlightClasses];
     }
@@ -80,8 +90,8 @@ typedef enum _CurrentSelection {
 }
 
 #pragma mark - User actions
--(IBAction)searchAirports {
-    
+-(IBAction)searchFlights {
+    [_flightsSearchAPI searchFlights:_searchData];
 }
 
 
@@ -246,6 +256,17 @@ typedef enum _CurrentSelection {
     formatter.dateStyle = NSDateFormatterShortStyle;
     formatter.timeStyle = NSDateFormatterNoStyle;
     return [formatter stringFromDate:date];
+}
+
+-(void)flightsSearchFinishedWithResult:(FlightsRequestResult*)result {
+    if (result.error) {
+        return [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil)
+                                          message:[result.error localizedDescription]
+                                         delegate:nil
+                                cancelButtonTitle:NSLocalizedString(@"OK", nil)
+                                otherButtonTitles:nil] show];
+    }
+    NSLog(@"%@", result.requestIdSynonym);
 }
 
 @end

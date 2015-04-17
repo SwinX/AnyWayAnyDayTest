@@ -27,6 +27,9 @@ extern NSString* const FlightDateSelectionErrorDomain;
 extern NSInteger const FlightDateSelectionPastErrorCode;
 extern NSInteger const FlightDateSelectionFutureErrorCode;
 
+extern NSString* const FlightsSearchRequestDomain;
+extern NSInteger const FlightsSearchRequestGeneralErrorCode;
+
 #pragma mark - Passenger calculations
 extern NSInteger const MaxPassengerAmount;
 

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		4AF2F85F2D61D791A5D8957B /* libPods-Test.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE9F3E750F8771459463B31E /* libPods-Test.a */; };
 		BA7587951AE116A700F4E20C /* FlightClass.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7587941AE116A700F4E20C /* FlightClass.m */; };
+		BA7587991AE136F500F4E20C /* FlightsSearchAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7587981AE136F500F4E20C /* FlightsSearchAPI.m */; };
+		BA75879D1AE13A7C00F4E20C /* FlightsRequestResult.m in Sources */ = {isa = PBXBuildFile; fileRef = BA75879C1AE13A7C00F4E20C /* FlightsRequestResult.m */; };
 		BA7F35C71ADD610200345316 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7F35C21ADD610200345316 /* AppDelegate.m */; };
 		BA7F35CD1ADD62B200345316 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7F35CB1ADD62B200345316 /* main.m */; };
 		BA7F35E11ADD653900345316 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7F35DE1ADD653900345316 /* Constants.m */; };
@@ -30,6 +32,10 @@
 		BA7587911AE0491400F4E20C /* SearchAirportControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchAirportControllerDelegate.h; sourceTree = "<group>"; };
 		BA7587931AE116A700F4E20C /* FlightClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightClass.h; sourceTree = "<group>"; };
 		BA7587941AE116A700F4E20C /* FlightClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightClass.m; sourceTree = "<group>"; };
+		BA7587971AE136F500F4E20C /* FlightsSearchAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightsSearchAPI.h; sourceTree = "<group>"; };
+		BA7587981AE136F500F4E20C /* FlightsSearchAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightsSearchAPI.m; sourceTree = "<group>"; };
+		BA75879B1AE13A7C00F4E20C /* FlightsRequestResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightsRequestResult.h; sourceTree = "<group>"; };
+		BA75879C1AE13A7C00F4E20C /* FlightsRequestResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightsRequestResult.m; sourceTree = "<group>"; };
 		BA7F35C11ADD610200345316 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BA7F35C21ADD610200345316 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		BA7F35CA1ADD62B200345316 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -88,6 +94,24 @@
 			path = FlightClass;
 			sourceTree = "<group>";
 		};
+		BA7587961AE136E600F4E20C /* SearchFlightsAPI */ = {
+			isa = PBXGroup;
+			children = (
+				BA7587971AE136F500F4E20C /* FlightsSearchAPI.h */,
+				BA7587981AE136F500F4E20C /* FlightsSearchAPI.m */,
+			);
+			path = SearchFlightsAPI;
+			sourceTree = "<group>";
+		};
+		BA75879A1AE139C100F4E20C /* FlightsRequestResult */ = {
+			isa = PBXGroup;
+			children = (
+				BA75879B1AE13A7C00F4E20C /* FlightsRequestResult.h */,
+				BA75879C1AE13A7C00F4E20C /* FlightsRequestResult.m */,
+			);
+			path = FlightsRequestResult;
+			sourceTree = "<group>";
+		};
 		BA7F35C01ADD610200345316 /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +134,7 @@
 		BA7F35C61ADD610200345316 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BA75879A1AE139C100F4E20C /* FlightsRequestResult */,
 				BA7587921AE1168F00F4E20C /* FlightClass */,
 				BA7F36011ADED14600345316 /* Airport */,
 				BA7F35FD1ADEC7CD00345316 /* FlightSearchData */,
@@ -208,6 +233,7 @@
 		BA7F36051ADEE0E100345316 /* APIs */ = {
 			isa = PBXGroup;
 			children = (
+				BA7587961AE136E600F4E20C /* SearchFlightsAPI */,
 				BA7F360A1ADEE4E800345316 /* SearchAirportsAPI */,
 			);
 			path = APIs;
@@ -394,11 +420,13 @@
 				BA7F35FA1ADD902200345316 /* FlightDateSelectionController.m in Sources */,
 				BA7F360D1ADEE4E800345316 /* SearchAirpotrsAPI.m in Sources */,
 				BA7F36041ADED15500345316 /* Airport.m in Sources */,
+				BA7587991AE136F500F4E20C /* FlightsSearchAPI.m in Sources */,
 				BA7F35C71ADD610200345316 /* AppDelegate.m in Sources */,
 				BA7F35F71ADD900F00345316 /* FlightSearchController.m in Sources */,
 				BA7F35E11ADD653900345316 /* Constants.m in Sources */,
 				BA7F36001ADEC7DC00345316 /* FlightSearchData.m in Sources */,
 				BA7F36111ADEE84F00345316 /* AFHTTPRequestOperationManager+SharedManager.m in Sources */,
+				BA75879D1AE13A7C00F4E20C /* FlightsRequestResult.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

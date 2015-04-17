@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ikF-xz-xGw">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -146,7 +145,7 @@
                     <navigationItem key="navigationItem" id="QOY-90-l71">
                         <barButtonItem key="rightBarButtonItem" enabled="NO" title="Search" style="done" id="fSx-Wd-DOq">
                             <connections>
-                                <action selector="searchAirports" destination="Mkq-6G-Qkh" id="bLM-YY-3pX"/>
+                                <action selector="searchFlights" destination="Mkq-6G-Qkh" id="Wyz-M9-DiQ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
