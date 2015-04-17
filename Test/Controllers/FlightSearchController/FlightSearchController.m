@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 AnyWayAnyDay. All rights reserved.
 //
 
+#import <ActionSheetPicker-3.0/ActionSheetPicker.h>
 #import "FlightSearchController.h"
 
 #import "FlightDateSelectionController.h"
@@ -19,18 +20,29 @@
 
 #import "Constants.h"
 
-typedef enum _FlightPlaceSelection {
-    FPSDeparture = 0,
-    FPSArrival
-}FlightPlaceSelection;
+typedef enum _CurrentSelection {
+    CSDeparture = 0,
+    CSArrival,
+    CSFlightDate,
+    CSPassengerAmount,
+    CSFlightClass
+}CurrentSelection;
 
 @interface FlightSearchController (Private)
 
--(void)startFlightPlaceSelection:(FlightPlaceSelection)selection;
+-(void)startFlightPlaceSelection:(CurrentSelection)selection;
+-(void)startFlightDateSelection;
+-(void)startPassengerAmountSelection;
+-(void)startFlightClassSelection;
+
+-(NSArray*)passengerAmountPickerData;
+-(NSArray*)flightClassPickerData;
+-(NSInteger)selectedFlightClassIndex;
 
 -(void)displayFlightSearchData:(FlightSearchData*)data;
 -(void)displayTitleText:(NSString*)titleText detailText:(NSString*)detailText inCell:(UITableViewCell*)cell;
 -(NSString*)formattedFlightDate:(NSDate*)date;
+
 
 @end
 
@@ -42,18 +54,21 @@ typedef enum _FlightPlaceSelection {
 @property (nonatomic, weak) IBOutlet UITableViewCell* passengerAmount;
 @property (nonatomic, weak) IBOutlet UITableViewCell* flightClass;
 
-@property (nonatomic, strong) FlightSearchData* searchData;
+
 
 @end
 
 @implementation FlightSearchController {
-    FlightPlaceSelection _flightPlaceSelection;
+    FlightSearchData* _searchData;
+    CurrentSelection _currentSelection;
+    NSArray* _flightClasses;
 }
 
 #pragma mark - Initialization and deallocation
 -(instancetype)initWithCoder:(NSCoder *)aDecoder {
     if (self = [super initWithCoder:aDecoder]) {
-        self.searchData = [[FlightSearchData alloc] init];
+        _searchData = [[FlightSearchData alloc] init];
+        _flightClasses = [FlightClass allFlightClasses];
     }
     return self;
 }
@@ -71,16 +86,24 @@ typedef enum _FlightPlaceSelection {
     
     UITableViewCell* cell = [tableView cellForRowAtIndexPath:indexPath];
     
-    if (cell == _flightDate) {
-        return [self.navigationController pushViewController:[[FlightDateSelectionController alloc] initWithDelegate:self] animated:YES];
-    }
-    
     if (cell == _departurePlace) {
-        [self startFlightPlaceSelection:FPSDeparture];
+        [self startFlightPlaceSelection:CSDeparture];
     }
     
     if (cell == _arrivalPlace) {
-        [self startFlightPlaceSelection:FPSArrival];
+        [self startFlightPlaceSelection:CSArrival];
+    }
+    
+    if (cell == _flightDate) {
+        [self startFlightDateSelection];
+    }
+    
+    if (cell == _passengerAmount) {
+        [self startPassengerAmountSelection];
+    }
+    
+    if (cell == _flightClass) {
+        [self startFlightClassSelection];
     }
 }
 
@@ -93,12 +116,15 @@ typedef enum _FlightPlaceSelection {
 
 #pragma mark - SearchAirportControllerDelegate implementation
 -(void)searchAirportController:(SearchAirportController*)controller didSelectAirport:(Airport*)airport {
-    switch (_flightPlaceSelection) {
-        case FPSDeparture:
+    switch (_currentSelection) {
+        case CSDeparture:
             _searchData.departure = airport;
             break;
-        case FPSArrival:
+        case CSArrival:
             _searchData.arrival = airport;
+            break;
+        default:
+            NSAssert(false, @"Current selection here must be either CSDeparture or CSArrival");
             break;
     }
     [self displayFlightSearchData:_searchData];
@@ -109,12 +135,77 @@ typedef enum _FlightPlaceSelection {
 
 @implementation FlightSearchController (Private)
 
--(void)startFlightPlaceSelection:(FlightPlaceSelection)selection {
-    _flightPlaceSelection = selection;
+-(void)startFlightPlaceSelection:(CurrentSelection)selection {
+    _currentSelection = selection;
     UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     SearchAirportController* controller = [storyboard instantiateViewControllerWithIdentifier:SearchAirportControllerStoryboardId];
     controller.delegate = self;
     [self.navigationController pushViewController:controller animated:YES];
+}
+
+-(void)startFlightDateSelection {
+    _currentSelection = CSFlightDate;
+    [self.navigationController pushViewController:[[FlightDateSelectionController alloc] initWithDelegate:self] animated:YES];
+}
+
+-(void)startPassengerAmountSelection {
+    _currentSelection = CSPassengerAmount;
+    __weak FlightSearchController* weakSelf = self;
+    [ActionSheetStringPicker showPickerWithTitle:NSLocalizedString(@"Passenger amount", nil)
+                                            rows:[self passengerAmountPickerData]
+                                initialSelection:_searchData.passengerAmount - 1
+                                       doneBlock:^(ActionSheetStringPicker *picker, NSInteger selectedIndex, id selectedValue) {
+                                           __strong FlightSearchController* strongSelf = weakSelf;
+                                           if (strongSelf) {
+                                               strongSelf -> _searchData.passengerAmount = selectedIndex + 1;
+                                               [strongSelf displayFlightSearchData:strongSelf -> _searchData];
+                                           }
+                                       }
+                                     cancelBlock:nil
+                                          origin:self.view];
+}
+
+-(void)startFlightClassSelection {
+    _currentSelection = CSFlightClass;
+    __weak FlightSearchController* weakSelf = self;
+    [ActionSheetStringPicker showPickerWithTitle:NSLocalizedString(@"Flight class", nil)
+                                            rows:[self flightClassPickerData]
+                                initialSelection:[self selectedFlightClassIndex]
+                                       doneBlock:^(ActionSheetStringPicker *picker, NSInteger selectedIndex, id selectedValue) {
+                                           __strong FlightSearchController* strongSelf = weakSelf;
+                                           if (strongSelf) {
+                                               strongSelf -> _searchData.flightClass = [strongSelf -> _flightClasses objectAtIndex:selectedIndex];
+                                               [strongSelf displayFlightSearchData:strongSelf -> _searchData];
+                                           }
+                                       }
+                                     cancelBlock:nil
+                                          origin:self.view];
+}
+
+-(NSArray*)passengerAmountPickerData {
+    NSMutableArray* pickerData = [NSMutableArray array];
+    for (int i = 1; i < MaxPassengerAmount; i++) {
+        [pickerData addObject:[NSString stringWithFormat:@"%d", i]];
+    }
+    return pickerData;
+}
+
+-(NSArray*)flightClassPickerData {
+    NSMutableArray* pickerData = [NSMutableArray array];
+    for (FlightClass* flightClass in _flightClasses) {
+        [pickerData addObject:flightClass.localizedDescription];
+    }
+    return pickerData;
+}
+
+-(NSInteger)selectedFlightClassIndex {
+    for (int i = 0; i < _flightClasses.count; i++) {
+        FlightClass* flightClass = [_flightClasses objectAtIndex:i];
+        if (flightClass.type == _searchData.flightClass.type) {
+            return i;
+        }
+    }
+    return 0;
 }
 
 -(void)displayFlightSearchData:(FlightSearchData*)data {
@@ -151,6 +242,5 @@ typedef enum _FlightPlaceSelection {
     formatter.timeStyle = NSDateFormatterNoStyle;
     return [formatter stringFromDate:date];
 }
-
 
 @end

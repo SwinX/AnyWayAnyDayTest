@@ -1,4 +1,5 @@
 PODS:
+  - ActionSheetPicker-3.0 (1.6.1)
   - AFNetworking (2.5.2):
     - AFNetworking/NSURLConnection (= 2.5.2)
     - AFNetworking/NSURLSession (= 2.5.2)
@@ -26,11 +27,13 @@ PODS:
   - RDVCalendarView (1.0.7)
 
 DEPENDENCIES:
+  - ActionSheetPicker-3.0 (~> 1.6.1)
   - AFNetworking (~> 2.5.2)
   - Mantle (~> 2.0)
   - RDVCalendarView (~> 1.0.7)
 
 SPEC CHECKSUMS:
+  ActionSheetPicker-3.0: f8da36f51ba109882a7cfa5979a4856b4e26fa37
   AFNetworking: fefbce9660acb17f48ae0011292d4da0f457bf36
   Mantle: 17de73ef929db2234d76fde2aacfb89ab11c61e8
   RDVCalendarView: f9702024bbbc235709748812cff6f5f48b147fbb
