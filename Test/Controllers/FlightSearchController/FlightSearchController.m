@@ -262,6 +262,7 @@ typedef enum _CurrentSelection {
 
 -(void)flightsSearchFinishedWithResult:(FlightsRequestResult*)result {
     if (result.error) {
+        [SVProgressHUD dismiss];
         return [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil)
                                           message:[result.error localizedDescription]
                                          delegate:nil
