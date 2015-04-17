@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4AF2F85F2D61D791A5D8957B /* libPods-Test.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE9F3E750F8771459463B31E /* libPods-Test.a */; };
+		BA7587951AE116A700F4E20C /* FlightClass.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7587941AE116A700F4E20C /* FlightClass.m */; };
 		BA7F35C71ADD610200345316 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7F35C21ADD610200345316 /* AppDelegate.m */; };
 		BA7F35CD1ADD62B200345316 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7F35CB1ADD62B200345316 /* main.m */; };
 		BA7F35E11ADD653900345316 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7F35DE1ADD653900345316 /* Constants.m */; };
@@ -27,6 +28,8 @@
 		6A6BD6B3FC18052E4672364E /* Pods-Test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Test.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Test/Pods-Test.debug.xcconfig"; sourceTree = "<group>"; };
 		897940753F58AEC0B9432922 /* Pods-Test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Test.release.xcconfig"; path = "Pods/Target Support Files/Pods-Test/Pods-Test.release.xcconfig"; sourceTree = "<group>"; };
 		BA7587911AE0491400F4E20C /* SearchAirportControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchAirportControllerDelegate.h; sourceTree = "<group>"; };
+		BA7587931AE116A700F4E20C /* FlightClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightClass.h; sourceTree = "<group>"; };
+		BA7587941AE116A700F4E20C /* FlightClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightClass.m; sourceTree = "<group>"; };
 		BA7F35C11ADD610200345316 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BA7F35C21ADD610200345316 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		BA7F35CA1ADD62B200345316 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -76,6 +79,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		BA7587921AE1168F00F4E20C /* FlightClass */ = {
+			isa = PBXGroup;
+			children = (
+				BA7587931AE116A700F4E20C /* FlightClass.h */,
+				BA7587941AE116A700F4E20C /* FlightClass.m */,
+			);
+			path = FlightClass;
+			sourceTree = "<group>";
+		};
 		BA7F35C01ADD610200345316 /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +110,7 @@
 		BA7F35C61ADD610200345316 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BA7587921AE1168F00F4E20C /* FlightClass */,
 				BA7F36011ADED14600345316 /* Airport */,
 				BA7F35FD1ADEC7CD00345316 /* FlightSearchData */,
 			);
@@ -376,6 +389,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA7F35CD1ADD62B200345316 /* main.m in Sources */,
+				BA7587951AE116A700F4E20C /* FlightClass.m in Sources */,
 				BA7F36151ADEF3AB00345316 /* SearchAirportController.m in Sources */,
 				BA7F35FA1ADD902200345316 /* FlightDateSelectionController.m in Sources */,
 				BA7F360D1ADEE4E800345316 /* SearchAirpotrsAPI.m in Sources */,

@@ -9,12 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <Mantle/Mantle.h>
 
-typedef enum _FlightClass {
-    FCEconomy = 0,
-    FCBusiness
-}FlightClass;
-
 @class Airport;
+@class FlightClass;
 
 @interface FlightSearchData : NSObject
 
@@ -22,9 +18,7 @@ typedef enum _FlightClass {
 @property (nonatomic, strong) Airport* arrival;
 @property (nonatomic, copy) NSDate* flightDate;
 @property (nonatomic) NSUInteger passengerAmount;
-@property (nonatomic) FlightClass flightClass;
-
-@property (nonatomic, readonly) NSString* flightClassDescription;
+@property (nonatomic) FlightClass* flightClass;
 
 @property (nonatomic, readonly) BOOL isNesessaryDataFilled;
 

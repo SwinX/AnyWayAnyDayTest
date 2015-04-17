@@ -7,6 +7,7 @@
 //
 
 #import "FlightSearchData.h"
+#import "FlightClass.h"
 
 @implementation FlightSearchData
 
@@ -14,18 +15,9 @@
     if (self = [super init]) {
         self.flightDate = [NSDate date];
         self.passengerAmount = 1;
-        self.flightClass = FCEconomy;
+        self.flightClass = [[FlightClass alloc] initWithType:FCTEconomy];
     }
     return self;
-}
-
--(NSString*)flightClassDescription {
-    switch (_flightClass) {
-        case FCEconomy:
-            return NSLocalizedString(@"Economy", nil);
-        case FCBusiness:
-            return NSLocalizedString(@"Business", nil);
-    }
 }
 
 -(BOOL)isNesessaryDataFilled {

@@ -15,6 +15,7 @@
 
 #import "FlightSearchData.h"
 #import "Airport.h"
+#import "FlightClass.h"
 
 #import "Constants.h"
 
@@ -130,7 +131,7 @@ typedef enum _FlightPlaceSelection {
                 detailText:[NSString stringWithFormat:@"%lu", (unsigned long)_searchData.passengerAmount]
                     inCell:_passengerAmount];
     [self displayTitleText:nil
-                detailText:_searchData.flightClassDescription
+                detailText:_searchData.flightClass.localizedDescription
                     inCell:_flightClass];
     self.navigationItem.rightBarButtonItem.enabled = _searchData.isNesessaryDataFilled;
 }
