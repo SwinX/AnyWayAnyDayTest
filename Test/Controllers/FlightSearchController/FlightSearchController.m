@@ -141,9 +141,6 @@ typedef enum _FlightPlaceSelection {
     if (detailText.length) {
         cell.detailTextLabel.text = detailText;
     }
-    [cell setNeedsLayout];
-    [cell setNeedsUpdateConstraints];
-    [cell setNeedsDisplay];
 }
 
 -(NSString*)formattedFlightDate:(NSDate*)date {
