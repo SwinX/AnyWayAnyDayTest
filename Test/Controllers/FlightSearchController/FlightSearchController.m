@@ -7,6 +7,7 @@
 //
 
 #import <ActionSheetPicker-3.0/ActionSheetPicker.h>
+#import <SVProgressHUD/SVProgressHUD.h>
 #import "FlightSearchController.h"
 
 #import "FlightDateSelectionController.h"
@@ -91,6 +92,7 @@ typedef enum _CurrentSelection {
 
 #pragma mark - User actions
 -(IBAction)searchFlights {
+    [SVProgressHUD showProgress:0.0f status:NSLocalizedString(@"Searching flights...", nil) maskType:SVProgressHUDMaskTypeGradient];
     [_flightsSearchAPI searchFlights:_searchData];
 }
 
