@@ -19,8 +19,10 @@
 #import "Airport.h"
 #import "FlightClass.h"
 #import "FlightsRequestResult.h"
+#import "FlightsRequestStatusResult.h"
 
 #import "FlightsSearchAPI.h"
+#import "CheckFlightsRequestStatusAPI.h"
 
 #import "Constants.h"
 
@@ -48,6 +50,13 @@ typedef enum _CurrentSelection {
 -(NSString*)formattedFlightDate:(NSDate*)date;
 
 -(void)flightsSearchFinishedWithResult:(FlightsRequestResult*)result;
+-(void)checkFlightsRequestStatus;
+-(void)flightsRequestStatusUpdated:(FlightsRequestStatusResult*)status;
+
+-(void)displayFlightSearchProgress:(float)progress;
+-(void)hideFlightSearchProgress;
+-(void)displayFlightSearchComplete;
+-(void)displayError:(NSError*)error;
 
 @end
 
@@ -63,9 +72,12 @@ typedef enum _CurrentSelection {
 
 @implementation FlightSearchController {
     FlightsSearchAPI* _flightsSearchAPI;
+    CheckFlightsRequestStatusAPI* _checkFlightRequestStatusAPI;
     
     FlightSearchData* _searchData;
     CurrentSelection _currentSelection;
+    
+    FlightsRequestResult* _flightsRequestResult;
     
     NSArray* _flightClasses;
 }
@@ -78,6 +90,12 @@ typedef enum _CurrentSelection {
         _flightsSearchAPI.onFlighsSearchRequestSent = ^(FlightsRequestResult* result) {
             [weakSelf flightsSearchFinishedWithResult:result];
         };
+        
+        _checkFlightRequestStatusAPI = [[CheckFlightsRequestStatusAPI alloc] init];
+        _checkFlightRequestStatusAPI.onFlightsRequestStatusUpdated = ^(FlightsRequestStatusResult* result) {
+            [weakSelf flightsRequestStatusUpdated:result];
+        };
+        
         _searchData = [[FlightSearchData alloc] init];
         _flightClasses = [FlightClass allFlightClasses];
     }
@@ -92,7 +110,7 @@ typedef enum _CurrentSelection {
 
 #pragma mark - User actions
 -(IBAction)searchFlights {
-    [SVProgressHUD showProgress:0.0f status:NSLocalizedString(@"Searching flights...", nil) maskType:SVProgressHUDMaskTypeGradient];
+    [self displayFlightSearchProgress:0];
     [_flightsSearchAPI searchFlights:_searchData];
 }
 
@@ -263,13 +281,50 @@ typedef enum _CurrentSelection {
 -(void)flightsSearchFinishedWithResult:(FlightsRequestResult*)result {
     if (result.error) {
         [SVProgressHUD dismiss];
-        return [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil)
-                                          message:[result.error localizedDescription]
-                                         delegate:nil
-                                cancelButtonTitle:NSLocalizedString(@"OK", nil)
-                                otherButtonTitles:nil] show];
+        return [self displayError:result.error];
     }
-    NSLog(@"%@", result.requestIdSynonym);
+    _flightsRequestResult = result;
+    [self checkFlightsRequestStatus];
+}
+
+-(void)checkFlightsRequestStatus {
+    [_checkFlightRequestStatusAPI checkReuqestStatus:_flightsRequestResult];
+}
+
+-(void)flightsRequestStatusUpdated:(FlightsRequestStatusResult*)status {
+    if (status.error) {
+        [self hideFlightSearchProgress];
+        return [self displayError:status.error];
+    }
+    [self displayFlightSearchProgress:(status.completion / 100.0f)];
+    if (status.completion < 100) {
+        [self checkFlightsRequestStatus];
+    } else {
+        [self displayFlightSearchComplete];
+    }
+}
+
+-(void)displayFlightSearchProgress:(float)progress {
+    NSLog(@"%f", progress);
+    [SVProgressHUD showProgress:progress
+                         status:NSLocalizedString(@"Searching flights...", nil)
+                       maskType:SVProgressHUDMaskTypeGradient];
+}
+
+-(void)hideFlightSearchProgress {
+    [SVProgressHUD dismiss];
+}
+
+-(void)displayFlightSearchComplete {
+    [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Complete!", nil)];
+}
+
+-(void)displayError:(NSError*)error {
+    [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil)
+                                message:[error localizedDescription]
+                               delegate:nil
+                      cancelButtonTitle:NSLocalizedString(@"OK", nil)
+                      otherButtonTitles:nil] show];
 }
 
 @end

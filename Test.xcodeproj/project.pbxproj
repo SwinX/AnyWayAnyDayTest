@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4AF2F85F2D61D791A5D8957B /* libPods-Test.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE9F3E750F8771459463B31E /* libPods-Test.a */; };
+		BA4D9BED1AE184D200B4B506 /* FlightsRequestStatusResult.m in Sources */ = {isa = PBXBuildFile; fileRef = BA4D9BEC1AE184D200B4B506 /* FlightsRequestStatusResult.m */; };
+		BA4D9BF11AE184EC00B4B506 /* CheckFlightsRequestStatusAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = BA4D9BF01AE184EC00B4B506 /* CheckFlightsRequestStatusAPI.m */; };
 		BA7587951AE116A700F4E20C /* FlightClass.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7587941AE116A700F4E20C /* FlightClass.m */; };
 		BA7587991AE136F500F4E20C /* FlightsSearchAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7587981AE136F500F4E20C /* FlightsSearchAPI.m */; };
 		BA75879D1AE13A7C00F4E20C /* FlightsRequestResult.m in Sources */ = {isa = PBXBuildFile; fileRef = BA75879C1AE13A7C00F4E20C /* FlightsRequestResult.m */; };
@@ -29,6 +31,10 @@
 /* Begin PBXFileReference section */
 		6A6BD6B3FC18052E4672364E /* Pods-Test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Test.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Test/Pods-Test.debug.xcconfig"; sourceTree = "<group>"; };
 		897940753F58AEC0B9432922 /* Pods-Test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Test.release.xcconfig"; path = "Pods/Target Support Files/Pods-Test/Pods-Test.release.xcconfig"; sourceTree = "<group>"; };
+		BA4D9BEB1AE184D200B4B506 /* FlightsRequestStatusResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightsRequestStatusResult.h; sourceTree = "<group>"; };
+		BA4D9BEC1AE184D200B4B506 /* FlightsRequestStatusResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightsRequestStatusResult.m; sourceTree = "<group>"; };
+		BA4D9BEF1AE184EC00B4B506 /* CheckFlightsRequestStatusAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckFlightsRequestStatusAPI.h; sourceTree = "<group>"; };
+		BA4D9BF01AE184EC00B4B506 /* CheckFlightsRequestStatusAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckFlightsRequestStatusAPI.m; sourceTree = "<group>"; };
 		BA7587911AE0491400F4E20C /* SearchAirportControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchAirportControllerDelegate.h; sourceTree = "<group>"; };
 		BA7587931AE116A700F4E20C /* FlightClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightClass.h; sourceTree = "<group>"; };
 		BA7587941AE116A700F4E20C /* FlightClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightClass.m; sourceTree = "<group>"; };
@@ -85,6 +91,24 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		BA4D9BEA1AE184BD00B4B506 /* FlightsRequestStatusResult */ = {
+			isa = PBXGroup;
+			children = (
+				BA4D9BEB1AE184D200B4B506 /* FlightsRequestStatusResult.h */,
+				BA4D9BEC1AE184D200B4B506 /* FlightsRequestStatusResult.m */,
+			);
+			path = FlightsRequestStatusResult;
+			sourceTree = "<group>";
+		};
+		BA4D9BEE1AE184EC00B4B506 /* CheckFlightsRequestStatusAPI */ = {
+			isa = PBXGroup;
+			children = (
+				BA4D9BEF1AE184EC00B4B506 /* CheckFlightsRequestStatusAPI.h */,
+				BA4D9BF01AE184EC00B4B506 /* CheckFlightsRequestStatusAPI.m */,
+			);
+			path = CheckFlightsRequestStatusAPI;
+			sourceTree = "<group>";
+		};
 		BA7587921AE1168F00F4E20C /* FlightClass */ = {
 			isa = PBXGroup;
 			children = (
@@ -134,6 +158,7 @@
 		BA7F35C61ADD610200345316 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BA4D9BEA1AE184BD00B4B506 /* FlightsRequestStatusResult */,
 				BA75879A1AE139C100F4E20C /* FlightsRequestResult */,
 				BA7587921AE1168F00F4E20C /* FlightClass */,
 				BA7F36011ADED14600345316 /* Airport */,
@@ -233,6 +258,7 @@
 		BA7F36051ADEE0E100345316 /* APIs */ = {
 			isa = PBXGroup;
 			children = (
+				BA4D9BEE1AE184EC00B4B506 /* CheckFlightsRequestStatusAPI */,
 				BA7587961AE136E600F4E20C /* SearchFlightsAPI */,
 				BA7F360A1ADEE4E800345316 /* SearchAirportsAPI */,
 			);
@@ -418,6 +444,7 @@
 				BA7587951AE116A700F4E20C /* FlightClass.m in Sources */,
 				BA7F36151ADEF3AB00345316 /* SearchAirportController.m in Sources */,
 				BA7F35FA1ADD902200345316 /* FlightDateSelectionController.m in Sources */,
+				BA4D9BF11AE184EC00B4B506 /* CheckFlightsRequestStatusAPI.m in Sources */,
 				BA7F360D1ADEE4E800345316 /* SearchAirpotrsAPI.m in Sources */,
 				BA7F36041ADED15500345316 /* Airport.m in Sources */,
 				BA7587991AE136F500F4E20C /* FlightsSearchAPI.m in Sources */,
@@ -427,6 +454,7 @@
 				BA7F36001ADEC7DC00345316 /* FlightSearchData.m in Sources */,
 				BA7F36111ADEE84F00345316 /* AFHTTPRequestOperationManager+SharedManager.m in Sources */,
 				BA75879D1AE13A7C00F4E20C /* FlightsRequestResult.m in Sources */,
+				BA4D9BED1AE184D200B4B506 /* FlightsRequestStatusResult.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

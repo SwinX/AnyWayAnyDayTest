@@ -18,4 +18,6 @@ NSInteger const FlightDateSelectionPastErrorCode = 1;
 NSInteger const FlightDateSelectionFutureErrorCode = 2;
 NSString* const FlightsSearchRequestDomain = @"FlightsSearchRequestDomain";
 NSInteger const FlightsSearchRequestGeneralErrorCode = -1;
+NSString* const FlightsRequestStatusDomain = @"FlightsRequestStatusDomain";
+NSInteger const FlightsRequestStatusGeneralErrorCode = -1;
 NSInteger const MaxPassengerAmount = 255;
