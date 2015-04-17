@@ -79,6 +79,11 @@ typedef enum _CurrentSelection {
     [self displayFlightSearchData:_searchData];
 }
 
+#pragma mark - User actions
+-(IBAction)searchAirports {
+    
+}
+
 
 #pragma mark - UITableViewControllerDelegate implementation
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

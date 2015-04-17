@@ -144,7 +144,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="QOY-90-l71">
-                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Search" style="done" id="fSx-Wd-DOq"/>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Search" style="done" id="fSx-Wd-DOq">
+                            <connections>
+                                <action selector="searchAirports" destination="Mkq-6G-Qkh" id="bLM-YY-3pX"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="arrivalPlace" destination="8ha-d5-QaY" id="jBN-yM-qAT"/>
