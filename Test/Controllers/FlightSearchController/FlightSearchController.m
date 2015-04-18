@@ -23,6 +23,7 @@
 
 #import "FlightsSearchAPI.h"
 #import "CheckFlightsRequestStatusAPI.h"
+#import "FlightsSearchResultAPI.h"
 
 #import "Constants.h"
 
@@ -52,6 +53,8 @@ typedef enum _CurrentSelection {
 -(void)flightsSearchFinishedWithResult:(FlightsRequestResult*)result;
 -(void)checkFlightsRequestStatus;
 -(void)flightsRequestStatusUpdated:(FlightsRequestStatusResult*)status;
+-(void)loadFlightsSearchResult;
+-(void)flightsSearchResultLoaded; //TODO: Implement parameter
 
 -(void)displayFlightSearchProgress:(float)progress;
 -(void)hideFlightSearchProgress;
@@ -73,6 +76,7 @@ typedef enum _CurrentSelection {
 @implementation FlightSearchController {
     FlightsSearchAPI* _flightsSearchAPI;
     CheckFlightsRequestStatusAPI* _checkFlightRequestStatusAPI;
+    FlightsSearchResultAPI* _flightsSearchResultAPI;
     
     FlightSearchData* _searchData;
     CurrentSelection _currentSelection;
@@ -95,6 +99,9 @@ typedef enum _CurrentSelection {
         _checkFlightRequestStatusAPI.onFlightsRequestStatusUpdated = ^(FlightsRequestStatusResult* result) {
             [weakSelf flightsRequestStatusUpdated:result];
         };
+        
+        _flightsSearchResultAPI = [FlightsSearchResultAPI new];
+        _flightsSearchResultAPI.onFlightsSearchResultReceived = nil; //TODO: implement
         
         _searchData = [[FlightSearchData alloc] init];
         _flightClasses = [FlightClass allFlightClasses];
@@ -302,6 +309,14 @@ typedef enum _CurrentSelection {
     } else {
         [self displayFlightSearchComplete];
     }
+}
+
+-(void)loadFlightsSearchResult {
+    
+}
+
+-(void)flightsSearchResultLoaded {
+    
 }
 
 -(void)displayFlightSearchProgress:(float)progress {
