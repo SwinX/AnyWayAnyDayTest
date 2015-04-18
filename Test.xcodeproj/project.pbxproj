@@ -11,6 +11,7 @@
 		BA4D9BED1AE184D200B4B506 /* FlightsRequestStatusResult.m in Sources */ = {isa = PBXBuildFile; fileRef = BA4D9BEC1AE184D200B4B506 /* FlightsRequestStatusResult.m */; };
 		BA4D9BF11AE184EC00B4B506 /* CheckFlightsRequestStatusAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = BA4D9BF01AE184EC00B4B506 /* CheckFlightsRequestStatusAPI.m */; };
 		BA4D9BF91AE2430900B4B506 /* FlightsSearchResultAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = BA4D9BF81AE2430900B4B506 /* FlightsSearchResultAPI.m */; };
+		BA4D9BFE1AE2469F00B4B506 /* AirlinesListController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA4D9BFD1AE2469F00B4B506 /* AirlinesListController.m */; };
 		BA7587951AE116A700F4E20C /* FlightClass.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7587941AE116A700F4E20C /* FlightClass.m */; };
 		BA7587991AE136F500F4E20C /* FlightsSearchAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7587981AE136F500F4E20C /* FlightsSearchAPI.m */; };
 		BA75879D1AE13A7C00F4E20C /* FlightsRequestResult.m in Sources */ = {isa = PBXBuildFile; fileRef = BA75879C1AE13A7C00F4E20C /* FlightsRequestResult.m */; };
@@ -38,6 +39,8 @@
 		BA4D9BF01AE184EC00B4B506 /* CheckFlightsRequestStatusAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckFlightsRequestStatusAPI.m; sourceTree = "<group>"; };
 		BA4D9BF71AE2430900B4B506 /* FlightsSearchResultAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightsSearchResultAPI.h; sourceTree = "<group>"; };
 		BA4D9BF81AE2430900B4B506 /* FlightsSearchResultAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightsSearchResultAPI.m; sourceTree = "<group>"; };
+		BA4D9BFC1AE2469F00B4B506 /* AirlinesListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AirlinesListController.h; sourceTree = "<group>"; };
+		BA4D9BFD1AE2469F00B4B506 /* AirlinesListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AirlinesListController.m; sourceTree = "<group>"; };
 		BA7587911AE0491400F4E20C /* SearchAirportControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchAirportControllerDelegate.h; sourceTree = "<group>"; };
 		BA7587931AE116A700F4E20C /* FlightClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightClass.h; sourceTree = "<group>"; };
 		BA7587941AE116A700F4E20C /* FlightClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightClass.m; sourceTree = "<group>"; };
@@ -121,6 +124,22 @@
 			path = FlightsSearchResultAPI;
 			sourceTree = "<group>";
 		};
+		BA4D9BFA1AE2466000B4B506 /* AirlineFaresListController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AirlineFaresListController;
+			sourceTree = "<group>";
+		};
+		BA4D9BFB1AE2466000B4B506 /* AirlinesListController */ = {
+			isa = PBXGroup;
+			children = (
+				BA4D9BFC1AE2469F00B4B506 /* AirlinesListController.h */,
+				BA4D9BFD1AE2469F00B4B506 /* AirlinesListController.m */,
+			);
+			path = AirlinesListController;
+			sourceTree = "<group>";
+		};
 		BA7587921AE1168F00F4E20C /* FlightClass */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +179,8 @@
 		BA7F35C31ADD610200345316 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				BA4D9BFA1AE2466000B4B506 /* AirlineFaresListController */,
+				BA4D9BFB1AE2466000B4B506 /* AirlinesListController */,
 				BA7F36121ADEF39900345316 /* SearchAirportController */,
 				BA7F35F31ADD900F00345316 /* FlightDateSelectionController */,
 				BA7F35F41ADD900F00345316 /* FlightSearchController */,
@@ -463,6 +484,7 @@
 				BA7F36041ADED15500345316 /* Airport.m in Sources */,
 				BA7587991AE136F500F4E20C /* FlightsSearchAPI.m in Sources */,
 				BA7F35C71ADD610200345316 /* AppDelegate.m in Sources */,
+				BA4D9BFE1AE2469F00B4B506 /* AirlinesListController.m in Sources */,
 				BA7F35F71ADD900F00345316 /* FlightSearchController.m in Sources */,
 				BA7F35E11ADD653900345316 /* Constants.m in Sources */,
 				BA7F36001ADEC7DC00345316 /* FlightSearchData.m in Sources */,
