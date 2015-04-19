@@ -11,6 +11,7 @@
 
 #import "AirlineFaresListController.h"
 
+#import "AirlinesDescriptor.h"
 #import "Constants.h"
 
 @interface AirlinesListController ()<UITableViewDataSource, UITableViewDelegate>
@@ -34,7 +35,7 @@
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:AirlineCellId];
     Airline* airline = [_airlines objectAtIndex:indexPath.row];
-    cell.textLabel.text = airline.code;
+    cell.textLabel.text = [[AirlinesDescriptor sharedDesciptor] airlineDescription:airline.code];
     cell.detailTextLabel.text = [NSString stringWithFormat:NSLocalizedString(@"From %lu ₽", nil), airline.lowestPrice];
     return cell;
 }
