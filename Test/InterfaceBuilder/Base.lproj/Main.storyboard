@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ikF-xz-xGw">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -23,7 +24,7 @@
             </objects>
             <point key="canvasLocation" x="59" y="-458"/>
         </scene>
-        <!--Flight Search Controller-->
+        <!--Search flight-->
         <scene sceneID="e5o-3M-CoX">
             <objects>
                 <tableViewController id="Mkq-6G-Qkh" customClass="FlightSearchController" sceneMemberID="viewController">
@@ -142,7 +143,7 @@
                             <outlet property="delegate" destination="Mkq-6G-Qkh" id="EZJ-Vo-3Ia"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="QOY-90-l71">
+                    <navigationItem key="navigationItem" title="Search flight" id="QOY-90-l71">
                         <barButtonItem key="rightBarButtonItem" enabled="NO" title="Search" style="done" id="fSx-Wd-DOq">
                             <connections>
                                 <action selector="searchFlights" destination="Mkq-6G-Qkh" id="Wyz-M9-DiQ"/>
@@ -161,7 +162,7 @@
             </objects>
             <point key="canvasLocation" x="786" y="-465"/>
         </scene>
-        <!--Search Airport Controller-->
+        <!--Search airport-->
         <scene sceneID="44c-Zc-Zb6">
             <objects>
                 <viewController storyboardIdentifier="SearchAirportControllerStoryboardId" id="jZL-YV-Vx5" customClass="SearchAirportController" sceneMemberID="viewController">
@@ -280,6 +281,7 @@
                             <constraint firstItem="S1h-5R-AAD" firstAttribute="leading" secondItem="cFQ-uE-h6g" secondAttribute="leadingMargin" constant="-16" id="sFR-tM-uJs"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Search airport" id="eAL-hx-1hd"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="searchBar" destination="S1h-5R-AAD" id="fFW-Kx-w0n"/>
@@ -289,6 +291,67 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n86-gW-BUr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1463" y="-459"/>
+        </scene>
+        <!--Pick airline-->
+        <scene sceneID="fMr-Kq-xOf">
+            <objects>
+                <viewController storyboardIdentifier="AirlinesListControllerStoryboardId" automaticallyAdjustsScrollViewInsets="NO" id="g8F-Ce-b12" customClass="AirlinesListController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="o2i-6N-O3y"/>
+                        <viewControllerLayoutGuide type="bottom" id="l36-NT-GkC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5bc-j1-MfS">
+                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="GPd-wS-vGx">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AirlineCellId" textLabel="Wog-we-qac" detailTextLabel="cTW-lj-xlT" rowHeight="44" style="IBUITableViewCellStyleValue1" id="IA2-1v-IWj">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IA2-1v-IWj" id="5ee-Bk-uer">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Airline code goes here" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Wog-we-qac">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Min. 3000₽" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cTW-lj-xlT">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="g8F-Ce-b12" id="KGe-DM-oSr"/>
+                                    <outlet property="delegate" destination="g8F-Ce-b12" id="35B-bT-B1b"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="l36-NT-GkC" firstAttribute="top" secondItem="GPd-wS-vGx" secondAttribute="bottom" id="Hxz-km-tYU"/>
+                            <constraint firstItem="GPd-wS-vGx" firstAttribute="top" secondItem="o2i-6N-O3y" secondAttribute="bottom" id="PNo-Rs-bUh"/>
+                            <constraint firstItem="GPd-wS-vGx" firstAttribute="leading" secondItem="5bc-j1-MfS" secondAttribute="leadingMargin" constant="-16" id="d5L-G9-3U7"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="GPd-wS-vGx" secondAttribute="trailing" constant="-16" id="soV-3t-lU2"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Pick airline" id="KWk-rm-CQG"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="table" destination="GPd-wS-vGx" id="YN7-05-XCQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="63S-R3-m2m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2159" y="-459"/>
         </scene>
     </scenes>
 </document>

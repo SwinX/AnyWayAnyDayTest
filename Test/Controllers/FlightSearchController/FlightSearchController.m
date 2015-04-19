@@ -14,6 +14,7 @@
 #import "FlightDateSelectionControllerDelegate.h"
 #import "SearchAirportController.h"
 #import "SearchAirportControllerDelegate.h"
+#import "AirlinesListController.h"
 
 #import "FlightSearchData.h"
 #import "Airport.h"
@@ -42,6 +43,8 @@ typedef enum _CurrentSelection {
 -(void)startFlightDateSelection;
 -(void)startPassengerAmountSelection;
 -(void)startFlightClassSelection;
+
+-(void)startPickAirlines:(NSArray*)airlines;
 
 -(NSArray*)passengerAmountPickerData;
 -(NSArray*)flightClassPickerData;
@@ -228,6 +231,13 @@ typedef enum _CurrentSelection {
                                           origin:self.view];
 }
 
+-(void)startPickAirlines:(NSArray*)airlines {
+    UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    AirlinesListController* controller = [storyboard instantiateViewControllerWithIdentifier:AirlinesListControllerStoryboardId];
+    controller.airlines = airlines;
+    [self.navigationController pushViewController:controller animated:YES];
+}
+
 -(NSArray*)passengerAmountPickerData {
     NSMutableArray* pickerData = [NSMutableArray array];
     for (int i = 1; i < MaxPassengerAmount; i++) {
@@ -330,7 +340,7 @@ typedef enum _CurrentSelection {
     if (!result.airlines.count) {
         [self displayNoFlightsFound];
     } else {
-        //push flights list there
+        [self startPickAirlines:result.airlines];
     }
 }
 

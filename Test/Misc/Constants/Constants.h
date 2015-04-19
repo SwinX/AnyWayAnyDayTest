@@ -16,11 +16,13 @@ extern NSString* const BaseURL;
 
 #pragma mark - Storyboard IDs
 extern NSString* const SearchAirportControllerStoryboardId;
+extern NSString* const AirlinesListControllerStoryboardId;
 
 #pragma mark - UITableViewCell IDs
 extern NSString* const AirportCell;
 extern NSString* const LoadingAirportsCell;
 extern NSString* const NoAirportsFoundCell;
+extern NSString* const AirlineCellId;
 
 #pragma mark - Errors
 extern NSString* const FlightDateSelectionErrorDomain;
