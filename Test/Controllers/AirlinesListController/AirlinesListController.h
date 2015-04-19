@@ -10,4 +10,6 @@
 
 @interface AirlinesListController : UIViewController
 
+@property (nonatomic, strong) NSArray* airlines;
+
 @end

@@ -13,4 +13,6 @@
 @property (nonatomic, copy) NSString* code;
 @property (nonatomic, strong) NSArray* fares;
 
+@property (nonatomic, readonly) NSUInteger lowestPrice;
+
 @end

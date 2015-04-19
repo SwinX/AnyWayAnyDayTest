@@ -7,6 +7,7 @@
 //
 
 #import "AirlinesListController.h"
+#import "Airline.h"
 
 @interface AirlinesListController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -24,7 +25,7 @@
 
 #pragma mark - UITableViewDataSource implementation
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+    return _airlines.count;
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
