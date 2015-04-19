@@ -45,7 +45,8 @@ static AirlinesDescriptor* instance = nil;
     return self;
 }
 
--(void)refresh:(refresh_handler_t)completionHandler; {
+-(void)refresh:(refresh_handler_t)completionHandler {
+    _refreshHandler = completionHandler;
     [_descriptions removeAllObjects];
     [_loadAirlinesDescriptionAPI loadAirlinesDescription];
 }

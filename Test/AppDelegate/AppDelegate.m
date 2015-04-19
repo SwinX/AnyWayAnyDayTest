@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 
 #import "AFHTTPRequestOperationManager+SharedManager.h"
+
+#import "AirlinesDescriptor.h"
 #import "Constants.h"
 
 @interface AppDelegate ()
@@ -19,8 +21,10 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
     [AFHTTPRequestOperationManager setupSharedManagerWithURL:[NSURL URLWithString:BaseURL]];
+    [[AirlinesDescriptor sharedDesciptor] refresh:^(BOOL isSuccessful) {
+        NSLog(@"Initialized Airlines descriptor successfully: %d", isSuccessful);
+    }];
     return YES;
 }
 
