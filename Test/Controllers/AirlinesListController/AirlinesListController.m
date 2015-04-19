@@ -9,6 +9,8 @@
 #import "AirlinesListController.h"
 #import "Airline.h"
 
+#import "AirlineFaresListController.h"
+
 #import "Constants.h"
 
 @interface AirlinesListController ()<UITableViewDataSource, UITableViewDelegate>
@@ -40,6 +42,10 @@
 #pragma mark - UITableViewDelegate implementation
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    AirlineFaresListController* controller = [storyboard instantiateViewControllerWithIdentifier:AirlineFaresListControllerStoryboardId];
+    controller.airline = [_airlines objectAtIndex:indexPath.row];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 @end

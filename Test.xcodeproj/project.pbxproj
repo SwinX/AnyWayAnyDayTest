@@ -17,6 +17,7 @@
 		BA4D9C131AE24C7400B4B506 /* RequestResult.m in Sources */ = {isa = PBXBuildFile; fileRef = BA4D9C121AE24C7400B4B506 /* RequestResult.m */; };
 		BA4D9C171AE2521C00B4B506 /* Airline.m in Sources */ = {isa = PBXBuildFile; fileRef = BA4D9C161AE2521C00B4B506 /* Airline.m */; };
 		BA4D9C1B1AE2551800B4B506 /* Fare.m in Sources */ = {isa = PBXBuildFile; fileRef = BA4D9C1A1AE2551800B4B506 /* Fare.m */; };
+		BA4D9C1E1AE3DC0800B4B506 /* AirlineFaresListController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA4D9C1D1AE3DC0800B4B506 /* AirlineFaresListController.m */; };
 		BA7587951AE116A700F4E20C /* FlightClass.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7587941AE116A700F4E20C /* FlightClass.m */; };
 		BA7587991AE136F500F4E20C /* FlightsSearchAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7587981AE136F500F4E20C /* FlightsSearchAPI.m */; };
 		BA7F35C71ADD610200345316 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7F35C21ADD610200345316 /* AppDelegate.m */; };
@@ -55,6 +56,8 @@
 		BA4D9C161AE2521C00B4B506 /* Airline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Airline.m; sourceTree = "<group>"; };
 		BA4D9C191AE2551800B4B506 /* Fare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fare.h; sourceTree = "<group>"; };
 		BA4D9C1A1AE2551800B4B506 /* Fare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fare.m; sourceTree = "<group>"; };
+		BA4D9C1C1AE3DC0800B4B506 /* AirlineFaresListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AirlineFaresListController.h; sourceTree = "<group>"; };
+		BA4D9C1D1AE3DC0800B4B506 /* AirlineFaresListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AirlineFaresListController.m; sourceTree = "<group>"; };
 		BA7587911AE0491400F4E20C /* SearchAirportControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchAirportControllerDelegate.h; sourceTree = "<group>"; };
 		BA7587931AE116A700F4E20C /* FlightClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightClass.h; sourceTree = "<group>"; };
 		BA7587941AE116A700F4E20C /* FlightClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightClass.m; sourceTree = "<group>"; };
@@ -130,6 +133,8 @@
 		BA4D9BFA1AE2466000B4B506 /* AirlineFaresListController */ = {
 			isa = PBXGroup;
 			children = (
+				BA4D9C1C1AE3DC0800B4B506 /* AirlineFaresListController.h */,
+				BA4D9C1D1AE3DC0800B4B506 /* AirlineFaresListController.m */,
 			);
 			path = AirlineFaresListController;
 			sourceTree = "<group>";
@@ -548,6 +553,7 @@
 				BA7587991AE136F500F4E20C /* FlightsSearchAPI.m in Sources */,
 				BA7F35C71ADD610200345316 /* AppDelegate.m in Sources */,
 				BA4D9C171AE2521C00B4B506 /* Airline.m in Sources */,
+				BA4D9C1E1AE3DC0800B4B506 /* AirlineFaresListController.m in Sources */,
 				BA4D9C0D1AE24C5300B4B506 /* FlightsRequestResult.m in Sources */,
 				BA4D9BFE1AE2469F00B4B506 /* AirlinesListController.m in Sources */,
 				BA7F35F71ADD900F00345316 /* FlightSearchController.m in Sources */,

@@ -27,9 +27,9 @@
         Fare* first = (Fare*)obj1;
         Fare* second = (Fare*)obj2;
         
-        if (first.totalPrice > second.totalPrice) {
+        if (first.totalPrice < second.totalPrice) {
             return NSOrderedAscending;
-        } else if (first.totalPrice < second.totalPrice) {
+        } else if (first.totalPrice > second.totalPrice) {
             return NSOrderedDescending;
         } else {
             return NSOrderedSame;
