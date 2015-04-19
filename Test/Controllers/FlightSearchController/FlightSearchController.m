@@ -20,6 +20,7 @@
 #import "FlightClass.h"
 #import "FlightsRequestResult.h"
 #import "FlightsRequestStatusResult.h"
+#import "FlightsSearchResult.h"
 
 #import "FlightsSearchAPI.h"
 #import "CheckFlightsRequestStatusAPI.h"
@@ -54,11 +55,12 @@ typedef enum _CurrentSelection {
 -(void)checkFlightsRequestStatus;
 -(void)flightsRequestStatusUpdated:(FlightsRequestStatusResult*)status;
 -(void)loadFlightsSearchResult;
--(void)flightsSearchResultLoaded; //TODO: Implement parameter
+-(void)flightsSearchResultLoaded:(FlightsSearchResult*)result;
 
 -(void)displayFlightSearchProgress:(float)progress;
 -(void)hideFlightSearchProgress;
 -(void)displayFlightSearchComplete;
+-(void)displayNoFlightsFound;
 -(void)displayError:(NSError*)error;
 
 @end
@@ -101,7 +103,9 @@ typedef enum _CurrentSelection {
         };
         
         _flightsSearchResultAPI = [FlightsSearchResultAPI new];
-        _flightsSearchResultAPI.onFlightsSearchResultReceived = nil; //TODO: implement
+        _flightsSearchResultAPI.onFlightsSearchResultReceived = ^(FlightsSearchResult* result) {
+            [weakSelf flightsSearchResultLoaded:result];
+        };
         
         _searchData = [[FlightSearchData alloc] init];
         _flightClasses = [FlightClass allFlightClasses];
@@ -303,24 +307,37 @@ typedef enum _CurrentSelection {
         [self hideFlightSearchProgress];
         return [self displayError:status.error];
     }
-    [self displayFlightSearchProgress:(status.completion / 100.0f)];
+    [self displayFlightSearchProgress:(status.completion / 100.0f) - 0.1f];
     if (status.completion < 100) {
         [self checkFlightsRequestStatus];
     } else {
-        [self displayFlightSearchComplete];
+        [self loadFlightsSearchResult];
     }
 }
 
 -(void)loadFlightsSearchResult {
-    
+    [_flightsSearchResultAPI loadFlightsSearchResult:_flightsRequestResult];
 }
 
--(void)flightsSearchResultLoaded {
+-(void)flightsSearchResultLoaded:(FlightsSearchResult*)result {
+    if (result.error) {
+        [self hideFlightSearchProgress];
+        [self displayError:result.error];
+    }
+    [self displayFlightSearchProgress:1.0f];
+    [self displayFlightSearchComplete];
     
+    if (!result.airlines.count) {
+        [self displayNoFlightsFound];
+    } else {
+        //push flights list there
+    }
 }
 
 -(void)displayFlightSearchProgress:(float)progress {
-    NSLog(@"%f", progress);
+    if (progress < 0.0f) {
+        progress = 0.0f;
+    }
     [SVProgressHUD showProgress:progress
                          status:NSLocalizedString(@"Searching flights...", nil)
                        maskType:SVProgressHUDMaskTypeGradient];
@@ -332,6 +349,14 @@ typedef enum _CurrentSelection {
 
 -(void)displayFlightSearchComplete {
     [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Complete!", nil)];
+}
+
+-(void)displayNoFlightsFound {
+    [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"No flights found", nil)
+                                message:NSLocalizedString(@"Please select other departure or arrival point or change flight date", nil)
+                               delegate:nil
+                      cancelButtonTitle:NSLocalizedString(@"OK", nil)
+                      otherButtonTitles:nil] show];
 }
 
 -(void)displayError:(NSError*)error {

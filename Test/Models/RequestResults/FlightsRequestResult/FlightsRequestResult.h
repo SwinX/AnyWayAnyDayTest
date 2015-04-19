@@ -6,15 +6,11 @@
 //  Copyright (c) 2015 AnyWayAnyDay. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <Mantle/Mantle.h>
+#import "RequestResult.h"
 
-@interface FlightsRequestResult : MTLModel<MTLJSONSerializing>
+@interface FlightsRequestResult : RequestResult
 
 @property (nonatomic, copy) NSString* requestId;
 @property (nonatomic, copy) NSString* requestIdSynonym;
-@property (nonatomic, strong) NSError* error; 
-
--(instancetype)initWithError:(NSError*)error;
 
 @end

@@ -8,13 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		4AF2F85F2D61D791A5D8957B /* libPods-Test.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE9F3E750F8771459463B31E /* libPods-Test.a */; };
-		BA4D9BED1AE184D200B4B506 /* FlightsRequestStatusResult.m in Sources */ = {isa = PBXBuildFile; fileRef = BA4D9BEC1AE184D200B4B506 /* FlightsRequestStatusResult.m */; };
 		BA4D9BF11AE184EC00B4B506 /* CheckFlightsRequestStatusAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = BA4D9BF01AE184EC00B4B506 /* CheckFlightsRequestStatusAPI.m */; };
 		BA4D9BF91AE2430900B4B506 /* FlightsSearchResultAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = BA4D9BF81AE2430900B4B506 /* FlightsSearchResultAPI.m */; };
 		BA4D9BFE1AE2469F00B4B506 /* AirlinesListController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA4D9BFD1AE2469F00B4B506 /* AirlinesListController.m */; };
+		BA4D9C0D1AE24C5300B4B506 /* FlightsRequestResult.m in Sources */ = {isa = PBXBuildFile; fileRef = BA4D9C061AE24C5300B4B506 /* FlightsRequestResult.m */; };
+		BA4D9C0E1AE24C5300B4B506 /* FlightsRequestStatusResult.m in Sources */ = {isa = PBXBuildFile; fileRef = BA4D9C091AE24C5300B4B506 /* FlightsRequestStatusResult.m */; };
+		BA4D9C0F1AE24C5300B4B506 /* FlightsSearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = BA4D9C0C1AE24C5300B4B506 /* FlightsSearchResult.m */; };
+		BA4D9C131AE24C7400B4B506 /* RequestResult.m in Sources */ = {isa = PBXBuildFile; fileRef = BA4D9C121AE24C7400B4B506 /* RequestResult.m */; };
+		BA4D9C171AE2521C00B4B506 /* Airline.m in Sources */ = {isa = PBXBuildFile; fileRef = BA4D9C161AE2521C00B4B506 /* Airline.m */; };
+		BA4D9C1B1AE2551800B4B506 /* Fare.m in Sources */ = {isa = PBXBuildFile; fileRef = BA4D9C1A1AE2551800B4B506 /* Fare.m */; };
 		BA7587951AE116A700F4E20C /* FlightClass.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7587941AE116A700F4E20C /* FlightClass.m */; };
 		BA7587991AE136F500F4E20C /* FlightsSearchAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7587981AE136F500F4E20C /* FlightsSearchAPI.m */; };
-		BA75879D1AE13A7C00F4E20C /* FlightsRequestResult.m in Sources */ = {isa = PBXBuildFile; fileRef = BA75879C1AE13A7C00F4E20C /* FlightsRequestResult.m */; };
 		BA7F35C71ADD610200345316 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7F35C21ADD610200345316 /* AppDelegate.m */; };
 		BA7F35CD1ADD62B200345316 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7F35CB1ADD62B200345316 /* main.m */; };
 		BA7F35E11ADD653900345316 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7F35DE1ADD653900345316 /* Constants.m */; };
@@ -33,21 +37,29 @@
 /* Begin PBXFileReference section */
 		6A6BD6B3FC18052E4672364E /* Pods-Test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Test.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Test/Pods-Test.debug.xcconfig"; sourceTree = "<group>"; };
 		897940753F58AEC0B9432922 /* Pods-Test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Test.release.xcconfig"; path = "Pods/Target Support Files/Pods-Test/Pods-Test.release.xcconfig"; sourceTree = "<group>"; };
-		BA4D9BEB1AE184D200B4B506 /* FlightsRequestStatusResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightsRequestStatusResult.h; sourceTree = "<group>"; };
-		BA4D9BEC1AE184D200B4B506 /* FlightsRequestStatusResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightsRequestStatusResult.m; sourceTree = "<group>"; };
 		BA4D9BEF1AE184EC00B4B506 /* CheckFlightsRequestStatusAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckFlightsRequestStatusAPI.h; sourceTree = "<group>"; };
 		BA4D9BF01AE184EC00B4B506 /* CheckFlightsRequestStatusAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckFlightsRequestStatusAPI.m; sourceTree = "<group>"; };
 		BA4D9BF71AE2430900B4B506 /* FlightsSearchResultAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightsSearchResultAPI.h; sourceTree = "<group>"; };
 		BA4D9BF81AE2430900B4B506 /* FlightsSearchResultAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightsSearchResultAPI.m; sourceTree = "<group>"; };
 		BA4D9BFC1AE2469F00B4B506 /* AirlinesListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AirlinesListController.h; sourceTree = "<group>"; };
 		BA4D9BFD1AE2469F00B4B506 /* AirlinesListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AirlinesListController.m; sourceTree = "<group>"; };
+		BA4D9C051AE24C5300B4B506 /* FlightsRequestResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightsRequestResult.h; sourceTree = "<group>"; };
+		BA4D9C061AE24C5300B4B506 /* FlightsRequestResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightsRequestResult.m; sourceTree = "<group>"; };
+		BA4D9C081AE24C5300B4B506 /* FlightsRequestStatusResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightsRequestStatusResult.h; sourceTree = "<group>"; };
+		BA4D9C091AE24C5300B4B506 /* FlightsRequestStatusResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightsRequestStatusResult.m; sourceTree = "<group>"; };
+		BA4D9C0B1AE24C5300B4B506 /* FlightsSearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightsSearchResult.h; sourceTree = "<group>"; };
+		BA4D9C0C1AE24C5300B4B506 /* FlightsSearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightsSearchResult.m; sourceTree = "<group>"; };
+		BA4D9C111AE24C7400B4B506 /* RequestResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestResult.h; sourceTree = "<group>"; };
+		BA4D9C121AE24C7400B4B506 /* RequestResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestResult.m; sourceTree = "<group>"; };
+		BA4D9C151AE2521C00B4B506 /* Airline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Airline.h; sourceTree = "<group>"; };
+		BA4D9C161AE2521C00B4B506 /* Airline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Airline.m; sourceTree = "<group>"; };
+		BA4D9C191AE2551800B4B506 /* Fare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fare.h; sourceTree = "<group>"; };
+		BA4D9C1A1AE2551800B4B506 /* Fare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fare.m; sourceTree = "<group>"; };
 		BA7587911AE0491400F4E20C /* SearchAirportControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchAirportControllerDelegate.h; sourceTree = "<group>"; };
 		BA7587931AE116A700F4E20C /* FlightClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightClass.h; sourceTree = "<group>"; };
 		BA7587941AE116A700F4E20C /* FlightClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightClass.m; sourceTree = "<group>"; };
 		BA7587971AE136F500F4E20C /* FlightsSearchAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightsSearchAPI.h; sourceTree = "<group>"; };
 		BA7587981AE136F500F4E20C /* FlightsSearchAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightsSearchAPI.m; sourceTree = "<group>"; };
-		BA75879B1AE13A7C00F4E20C /* FlightsRequestResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightsRequestResult.h; sourceTree = "<group>"; };
-		BA75879C1AE13A7C00F4E20C /* FlightsRequestResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightsRequestResult.m; sourceTree = "<group>"; };
 		BA7F35C11ADD610200345316 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BA7F35C21ADD610200345316 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		BA7F35CA1ADD62B200345316 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -97,15 +109,6 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		BA4D9BEA1AE184BD00B4B506 /* FlightsRequestStatusResult */ = {
-			isa = PBXGroup;
-			children = (
-				BA4D9BEB1AE184D200B4B506 /* FlightsRequestStatusResult.h */,
-				BA4D9BEC1AE184D200B4B506 /* FlightsRequestStatusResult.m */,
-			);
-			path = FlightsRequestStatusResult;
-			sourceTree = "<group>";
-		};
 		BA4D9BEE1AE184EC00B4B506 /* CheckFlightsRequestStatusAPI */ = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +143,71 @@
 			path = AirlinesListController;
 			sourceTree = "<group>";
 		};
+		BA4D9C031AE24C5300B4B506 /* RequestResults */ = {
+			isa = PBXGroup;
+			children = (
+				BA4D9C101AE24C6600B4B506 /* RequestResult */,
+				BA4D9C041AE24C5300B4B506 /* FlightsRequestResult */,
+				BA4D9C071AE24C5300B4B506 /* FlightsRequestStatusResult */,
+				BA4D9C0A1AE24C5300B4B506 /* FlightsSearchRequestResult */,
+			);
+			path = RequestResults;
+			sourceTree = "<group>";
+		};
+		BA4D9C041AE24C5300B4B506 /* FlightsRequestResult */ = {
+			isa = PBXGroup;
+			children = (
+				BA4D9C051AE24C5300B4B506 /* FlightsRequestResult.h */,
+				BA4D9C061AE24C5300B4B506 /* FlightsRequestResult.m */,
+			);
+			path = FlightsRequestResult;
+			sourceTree = "<group>";
+		};
+		BA4D9C071AE24C5300B4B506 /* FlightsRequestStatusResult */ = {
+			isa = PBXGroup;
+			children = (
+				BA4D9C081AE24C5300B4B506 /* FlightsRequestStatusResult.h */,
+				BA4D9C091AE24C5300B4B506 /* FlightsRequestStatusResult.m */,
+			);
+			path = FlightsRequestStatusResult;
+			sourceTree = "<group>";
+		};
+		BA4D9C0A1AE24C5300B4B506 /* FlightsSearchRequestResult */ = {
+			isa = PBXGroup;
+			children = (
+				BA4D9C0B1AE24C5300B4B506 /* FlightsSearchResult.h */,
+				BA4D9C0C1AE24C5300B4B506 /* FlightsSearchResult.m */,
+			);
+			path = FlightsSearchRequestResult;
+			sourceTree = "<group>";
+		};
+		BA4D9C101AE24C6600B4B506 /* RequestResult */ = {
+			isa = PBXGroup;
+			children = (
+				BA4D9C111AE24C7400B4B506 /* RequestResult.h */,
+				BA4D9C121AE24C7400B4B506 /* RequestResult.m */,
+			);
+			path = RequestResult;
+			sourceTree = "<group>";
+		};
+		BA4D9C141AE2521000B4B506 /* Airline */ = {
+			isa = PBXGroup;
+			children = (
+				BA4D9C151AE2521C00B4B506 /* Airline.h */,
+				BA4D9C161AE2521C00B4B506 /* Airline.m */,
+			);
+			path = Airline;
+			sourceTree = "<group>";
+		};
+		BA4D9C181AE2533000B4B506 /* Fare */ = {
+			isa = PBXGroup;
+			children = (
+				BA4D9C191AE2551800B4B506 /* Fare.h */,
+				BA4D9C1A1AE2551800B4B506 /* Fare.m */,
+			);
+			path = Fare;
+			sourceTree = "<group>";
+		};
 		BA7587921AE1168F00F4E20C /* FlightClass */ = {
 			isa = PBXGroup;
 			children = (
@@ -156,15 +224,6 @@
 				BA7587981AE136F500F4E20C /* FlightsSearchAPI.m */,
 			);
 			path = SearchFlightsAPI;
-			sourceTree = "<group>";
-		};
-		BA75879A1AE139C100F4E20C /* FlightsRequestResult */ = {
-			isa = PBXGroup;
-			children = (
-				BA75879B1AE13A7C00F4E20C /* FlightsRequestResult.h */,
-				BA75879C1AE13A7C00F4E20C /* FlightsRequestResult.m */,
-			);
-			path = FlightsRequestResult;
 			sourceTree = "<group>";
 		};
 		BA7F35C01ADD610200345316 /* AppDelegate */ = {
@@ -191,8 +250,9 @@
 		BA7F35C61ADD610200345316 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				BA4D9BEA1AE184BD00B4B506 /* FlightsRequestStatusResult */,
-				BA75879A1AE139C100F4E20C /* FlightsRequestResult */,
+				BA4D9C181AE2533000B4B506 /* Fare */,
+				BA4D9C141AE2521000B4B506 /* Airline */,
+				BA4D9C031AE24C5300B4B506 /* RequestResults */,
 				BA7587921AE1168F00F4E20C /* FlightClass */,
 				BA7F36011ADED14600345316 /* Airport */,
 				BA7F35FD1ADEC7CD00345316 /* FlightSearchData */,
@@ -478,19 +538,23 @@
 				BA7587951AE116A700F4E20C /* FlightClass.m in Sources */,
 				BA7F36151ADEF3AB00345316 /* SearchAirportController.m in Sources */,
 				BA4D9BF91AE2430900B4B506 /* FlightsSearchResultAPI.m in Sources */,
+				BA4D9C131AE24C7400B4B506 /* RequestResult.m in Sources */,
+				BA4D9C0F1AE24C5300B4B506 /* FlightsSearchResult.m in Sources */,
 				BA7F35FA1ADD902200345316 /* FlightDateSelectionController.m in Sources */,
 				BA4D9BF11AE184EC00B4B506 /* CheckFlightsRequestStatusAPI.m in Sources */,
 				BA7F360D1ADEE4E800345316 /* SearchAirpotrsAPI.m in Sources */,
 				BA7F36041ADED15500345316 /* Airport.m in Sources */,
+				BA4D9C1B1AE2551800B4B506 /* Fare.m in Sources */,
 				BA7587991AE136F500F4E20C /* FlightsSearchAPI.m in Sources */,
 				BA7F35C71ADD610200345316 /* AppDelegate.m in Sources */,
+				BA4D9C171AE2521C00B4B506 /* Airline.m in Sources */,
+				BA4D9C0D1AE24C5300B4B506 /* FlightsRequestResult.m in Sources */,
 				BA4D9BFE1AE2469F00B4B506 /* AirlinesListController.m in Sources */,
 				BA7F35F71ADD900F00345316 /* FlightSearchController.m in Sources */,
 				BA7F35E11ADD653900345316 /* Constants.m in Sources */,
 				BA7F36001ADEC7DC00345316 /* FlightSearchData.m in Sources */,
 				BA7F36111ADEE84F00345316 /* AFHTTPRequestOperationManager+SharedManager.m in Sources */,
-				BA75879D1AE13A7C00F4E20C /* FlightsRequestResult.m in Sources */,
-				BA4D9BED1AE184D200B4B506 /* FlightsRequestStatusResult.m in Sources */,
+				BA4D9C0E1AE24C5300B4B506 /* FlightsRequestStatusResult.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
